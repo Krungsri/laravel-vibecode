@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo apt-get install -y poppler-utils)",
+      "Bash(pdftotext --version)",
+      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python3 -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "Bash(rtk pip *)",
+      "Bash(python3 -m pip install pdfplumber)",
+      "Bash(apt list *)",
+      "Bash(python3 -m ensurepip --upgrade)",
+      "Bash(rtk curl *)",
+      "Bash(python3 /tmp/get-pip.py --user)",
+      "Bash(python3 /tmp/get-pip.py --user --break-system-packages)",
+      "Bash(python3 -m pip install pdfplumber --break-system-packages)",
+      "Bash(python3 *)",
+      "Bash(gh auth *)",
+      "Bash(gh gist *)",
+      "WebFetch(domain:thesvg.org)",
+      "Bash(rtk grep *)",
+      "WebSearch",
+      "WebFetch(domain:developers.googleblog.com)",
+      "WebFetch(domain:agentpedia.codes)"
+    ]
+  }
+}
