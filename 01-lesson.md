@@ -25,7 +25,7 @@
 
 ---
 
-## บทนำ — AI สองแบบ ต่างกันอย่างไร
+## บทนำ: AI สองแบบ ต่างกันอย่างไร
 
 > [!NOTE]
 > เลือกใช้ให้ถูกงาน — ใน **Part 1** ใช้ Chat UI ช่วยเรียนรู้ทฤษฎี ใน **Part 2** ใช้ Agent CLI ทำ Workshop จริงใน Terminal
@@ -40,7 +40,7 @@
 
 ---
 
-## บทนำ — ทำไมต้องใช้ Laravel + AI
+## บทนำ: ทำไมต้องใช้ Laravel + AI
 
 | แบบเดิม (Manual Development) | ใช้ AI ช่วย (AI-Assisted) |
 |---------|-----------|
@@ -50,7 +50,7 @@
 | ลองผิดลองถูกแบบไม่มีทิศทาง | AI แนะนำ Best Practices และ Security Standards ให้ตั้งแต่แรก |
 
 > [!IMPORTANT]
-> **AI ไม่ใช่ "ผู้ที่จะมาทำงานแทนเราทั้งหมด" แต่เป็น "มหาอำนาจผู้ช่วย (Co-pilot)" ที่ทำให้เราเรียนรู้และพัฒนาได้เร็วขึ้น 3–5 เท่า**
+> **AI ไม่ใช่ตัวแทนที่จะมาทำงานแทนเราทั้งหมด แต่เป็นผู้ช่วย (Co-pilot) ที่ทำให้เราเรียนรู้และพัฒนาได้เร็วขึ้น 3–5 เท่า**
 
 ---
 
@@ -499,7 +499,7 @@ class PostController extends Controller
 
 ## 11. Middleware — ด่านตรวจกรอง Request
 
-**Middleware** ทำหน้าที่เปรียบเสมือนเจ้าหน้าที่ตรวจความปลอดภัย คอยคัดกรอง HTTP Requests ก่อนที่จะเข้าถึงเมธอดลอจิกใน Controller
+**Middleware** คือชั้นกรอง HTTP Request ก่อนที่จะเข้าถึงเมธอดลอจิกใน Controller
 
 ```mermaid
 flowchart TD
@@ -755,7 +755,7 @@ class StorePostRequest extends FormRequest
 
 ---
 
-## 17. <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> สรรสร้างระบบยืนยันตัวตนด้วย Starter Kit (Laravel Breeze)
+## 17. <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> ระบบยืนยันตัวตนจาก Starter Kit (Laravel Breeze)
 
 เมื่อเราเลือกติดตั้งผ่าน **Starter Kit (React)** พร้อมกับ **Laravel's built-in authentication** ตั้งแต่ขั้นตอนสร้างโปรเจกต์ (`laravel new`) ระบบจะทำการติดตั้งและเตรียมโครงสร้างไฟล์ของ **Laravel Breeze** มาให้เราใช้งานทันทีโดยไม่ต้องลงแพ็กเกจซ้ำ!
 
@@ -796,21 +796,21 @@ class StorePostRequest extends FormRequest
 
 ---
 
-# Part 2 — AI-Assisted Development
+# Part 2: AI-Assisted Development
 
-> สั่งการ AI Agent ผ่าน Terminal ให้มาช่วยวางแผนและพัฒนาชุดโค้ดของคุณอย่างมีระดับ
+> สั่งงาน AI Agent ผ่าน Terminal ให้ช่วยวางแผนและพัฒนาโค้ดในโปรเจกต์ของคุณ
 
 ---
 
 ## 19. เครื่องมือ AI Developer Agents ประจำปี 2026
 
-**AI Developer Agents** ยุคใหม่ถูกยกระดับจากการตอบคำถามธรรมดาไปสู่การทำงานอัตโนมัติ (Autonomic Working) มีความเข้าใจทั้ง Codebase มองเห็นโครงสร้างโปรเจกต์ วางแผน สรรสร้างแก้ไขไฟล์ และช่วยเราพิมพ์รันคำสั่งต่างๆ
+**AI Developer Agents** ในปัจจุบันทำได้มากกว่าแค่ตอบคำถาม สามารถอ่าน Codebase วางแผน สร้างและแก้ไขไฟล์ รวมถึงรันคำสั่งใน Terminal ได้เองโดยอัตโนมัติ
 
 | AI Agent Tool | จุดเด่นหลักในการทำงาน |
 |---|---|
-| **Claude Code** | พลังแห่งการคิดวิเคราะห์ขั้นสูงของ Anthropic โฟกัสไปที่ความปลอดภัยและมีสถาปัตยกรรมแบบขออนุมัติก่อนทำรายการเด็ดขาด |
-| **Antigravity CLI** | รวดเร็วด้วย Go รันระบบประมวลผลเบื้องหลังได้พร้อมกันผ่าน Async Subagents มีระบบสิทธิและการควบคุมดีเยี่ยมจาก Google |
-| **OpenCode** | อิสระในการเลือกใช้งานข้ามโมเดล (GPT-4, Claude, DeepSeek) รักษาความเป็นส่วนตัวสูงสุดและไม่นำโค้ดสำคัญขึ้น Cloud |
+| **Claude Code** | โมเดลจาก Anthropic ออกแบบมาให้ขอยืนยันก่อนแก้ไขไฟล์หรือรันคำสั่งสำคัญ เน้นความปลอดภัยเป็นหลัก |
+| **Antigravity CLI** | เขียนด้วย Go ทำให้รันเร็ว รองรับ Async Subagents ที่ทำงานหลายอย่างพร้อมกันได้ พัฒนาโดย Google |
+| **OpenCode** | เลือกใช้โมเดลได้หลายตัว (GPT-4, Claude, DeepSeek) รวมถึง Local Model สำหรับองค์กรที่ไม่ต้องการส่งโค้ดขึ้น Cloud |
 
 ---
 
@@ -855,7 +855,7 @@ graph TD
 
 ## 21. <img src="https://thesvg.org/icons/anthropic/default.svg" width="20" height="20" valign="middle"> Claude Code
 
-**Claude Code** จาก Anthropic คือ Agent ที่รันบน Terminal โดยตรง มีความฉลาดในการวิเคราะห์แก้ปัญหาลอจิกซับซ้อนและการตรวจสอบคุณภาพโค้ด
+**Claude Code** จาก Anthropic รันบน Terminal โดยตรง ถนัดในการวิเคราะห์ Logic ซับซ้อนและตรวจสอบคุณภาพโค้ด
 
 ```bash
 # ติดตั้งระบบผ่าน Node global pack
@@ -877,7 +877,7 @@ claude
 
 ## 22. <img src="https://thesvg.org/icons/google-antigravity/default.svg" width="20" height="20" valign="middle"> Antigravity CLI
 
-**Antigravity CLI** เป็น AI Developer Agent สัญชาติ Google พัฒนาขึ้นด้วยภาษา Go ทำให้รันได้รวดเร็วทันใจ มีฟีเจอร์เด่นเรื่องการทำ **Async Subagents** ที่แบ่งทีมงานบอตช่วยเราเขียนโค้ดและรันเทสเบื้องหลังได้พร้อมกัน
+**Antigravity CLI** พัฒนาโดย Google ใช้ภาษา Go ทำให้รันได้เร็ว ฟีเจอร์หลักคือ **Async Subagents** ที่รันงานหลายอย่างพร้อมกันใน Background ได้
 
 ```bash
 # ติดตั้งบนระบบ macOS / Linux / WSL 2
@@ -895,14 +895,14 @@ agy
 ```
 
 **ตัวอย่างการสั่งการยอดนิยม:**
-- `> สรรสร้างระบบจองและคืนรถยนต์ส่วนกลางภายในบริษัท`
+- `> สร้างระบบจองและคืนรถยนต์ส่วนกลางภายในบริษัท`
 - `> สั่งย่อย Subagent ช่วยเขียนโค้ดหลังบ้าน และอีกตัวเขียน UI ไปพร้อมๆ กัน`
 
 ---
 
 ## 23. <img src="https://thesvg.org/icons/opencode/default.svg" width="20" height="20" valign="middle"> OpenCode
 
-**OpenCode** เป็นอีกหนึ่งทางเลือกสำหรับองค์กรที่ให้ความสำคัญกับการรักษาความลับและความเป็นส่วนตัวของโค้ด เนื่องจากคุณสามารถสลับโมเดลมาใช้ Local Model หรือผู้ให้บริการ API ส่วนตัวได้
+**OpenCode** ให้ความยืดหยุ่นในการเลือกโมเดล สามารถสลับมาใช้ Local Model หรือ API ส่วนตัวได้ เหมาะกับองค์กรที่ต้องการควบคุมข้อมูล
 
 ```bash
 # ติดตั้งใช้งาน
@@ -915,11 +915,11 @@ opencode
 
 ---
 
-## 24. <img src="https://thesvg.org/icons/laravel/default.svg" width="24" height="24" valign="middle"> Laravel Boost AI — ยกระดับทัศนวิสัยความฉลาดของ AI Agent
+## 24. <img src="https://thesvg.org/icons/laravel/default.svg" width="24" height="24" valign="middle"> Laravel Boost AI: ให้ AI Agent เข้าใจโครงสร้างโปรเจกต์
 
 ความท้าทายที่ใหญ่ที่สุดของการใช้ AI Agent ในโปรเจกต์ขนาดใหญ่คือ **"การขาดบริบท (Context Gap)"** โมเดลส่วนใหญ่มักจะไม่ทราบโครงสร้างตารางฐานข้อมูลที่แท้จริง ไม่รู้เส้นทาง URLs หรือมักจะแนะนำฟังก์ชันที่เก่าล้าสมัย (Hallucination) 
 
-**Laravel Boost AI** เป็นเครื่องมือทางการของ Laravel ที่พัฒนาขึ้นมาเพื่อปิดช่องว่างนี้โดยเฉพาะ โดยอาศัยการผสมผสาน **2 เสาหลักความสามารถ** เพื่อยกระดับให้ AI Agent (เช่น Antigravity CLI หรือ Claude Code) ทำงานได้อย่างแม่นยำเทียบเท่าวิศวกรอาวุโส:
+**Laravel Boost AI** เป็น Package ของ Laravel ที่ออกแบบมาเพื่อปิดช่องว่างนี้ โดยใช้ **2 กลไกหลัก** เพื่อช่วยให้ AI Agent (เช่น Antigravity CLI หรือ Claude Code) เข้าใจโปรเจกต์และทำงานได้แม่นยำขึ้น:
 
 ---
 
@@ -980,7 +980,7 @@ flowchart TD
 
 ### 🔌 เจาะลึก 15+ MCP Tools ในแต่ละกลุ่มความสามารถ
 
-เมื่อติดตั้ง `laravel/boost` บอตของคุณจะสามารถเรียกใช้ฟังก์ชันอัจฉริยะเหล่านี้ได้ทันทีที่มันติดปัญหา โดยแบ่งตามหน้างานดังนี้:
+เมื่อติดตั้ง `laravel/boost` AI Agent จะสามารถเรียกใช้เครื่องมือเหล่านี้เมื่อต้องการข้อมูลโปรเจกต์ โดยแบ่งตามหน้างานดังนี้:
 
 | หมวดหมู่เครื่องมือ | ชื่อเครื่องมือและฟังก์ชัน | บทบาทหน้าที่ในการช่วยพัฒนา | ประโยชน์ที่ผู้เรียนจะได้รับ |
 | :--- | :--- | :--- | :--- |
@@ -991,8 +991,8 @@ flowchart TD
 | **🚨 Auto Log Analyzer** | `error-logs`<br>`browser-log` | **คู่หูจับบั๊กอัตโนมัติ:** คอยดึง Logs จาก `laravel.log` (Backend) และ Browser Console (Frontend React SPA) มาวิเคราะห์คู่กัน | **ไม่ต้องเสียเวลา Copy Logs ไปวางใน Chat UI!** เมื่อระบบขึ้นรหัส `500` หรือหน้าขาว บอตจะดึง Log มารันวิเคราะห์และซ่อมแซมตัวเองได้ทันที |
 
 > [!NOTE]
-> **ทำไมระบบนี้ถึงทรงพลังในระดับ Senior?**
-> ในการทำงานยุคเก่า หากเกิดข้อผิดพลาด คุณต้องคอยคัดลอก Trace Log ไปวางในเบราว์เซอร์ยาวเหยียด แต่เมื่อนำ **Model Context Protocol (MCP)** เข้ามาบูรณาการ ตัวเอเจนต์จะทำการสวมวิญญาณเป็นวิศวกรที่สามารถสืบค้น คิวรี และอ่าน Log ของโปรเจกต์จำลองนั้นเพื่อซ่อมแซมไฟล์ด้วยตัวเองได้แบบเบ็ดเสร็จจบในลูปเดียว!
+> **MCP เปลี่ยนวิธีการดีบักอย่างไร?**
+> เดิมทีเมื่อเกิดข้อผิดพลาด คุณต้องคัดลอก Trace Log ไปวางใน Chat UI เอง แต่เมื่อใช้ **Model Context Protocol (MCP)** เอเจนต์สามารถสืบค้น คิวรี และอ่าน Log ได้โดยตรงจากโปรเจกต์ แล้วแก้ไขไฟล์ได้เองในรอบเดียวโดยไม่ต้องรอคำสั่งเพิ่ม
 
 ---
 
