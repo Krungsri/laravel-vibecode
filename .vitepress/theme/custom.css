@@ -1,0 +1,8 @@
+/* Fix: img inside headings should be inline and vertically centered */
+.vp-doc h1 img,
+.vp-doc h2 img,
+.vp-doc h3 img,
+.vp-doc h4 img {
+  display: inline;
+  vertical-align: middle;
+}
