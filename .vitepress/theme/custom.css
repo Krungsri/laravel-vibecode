@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+
+/* Main content uses Sarabun */
+.vp-doc {
+  font-family: 'Sarabun', sans-serif;
+}
+
+/* Fix: Mermaid foreignObject clips bottom line when browser uses Thai system font (Sarabun) */
+.vp-doc svg foreignObject {
+  overflow: visible !important;
+}
+
 /* Fix: img inside headings should be inline and vertically centered */
 .vp-doc h1 img,
 .vp-doc h2 img,

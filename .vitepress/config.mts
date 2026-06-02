@@ -55,6 +55,9 @@ export default withMermaid(
 
     mermaid: {
       theme: 'default',
+      themeVariables: {
+        fontFamily: '"Trebuchet MS", Verdana, Arial, sans-serif',
+      },
     },
   })
 )

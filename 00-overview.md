@@ -8,15 +8,15 @@
 
 ---
 
-## 📂 สารบัญไฟล์ใน Gist (Table of Contents)
+## 📂 สารบัญไฟล์ (Table of Contents)
 
-เมื่อคุณศึกษาเนื้อหาใน Gist นี้ แนะนำให้อ่านเรียงตามลำดับไฟล์ดังต่อไปนี้เพื่อทำความเข้าใจได้อย่างเป็นขั้นตอน:
+แนะนำให้อ่านเรียงตามลำดับไฟล์ดังต่อไปนี้เพื่อทำความเข้าใจได้อย่างเป็นขั้นตอน:
 
 | ลำดับ | ไฟล์คู่มือ | รายละเอียดเนื้อหา |
 | :---: | :--- | :--- |
-| 📌 | **[00-overview.md](#file-00-overview-md)** | ภาพรวมโครงการอบรม, แผนการเรียนรู้ และโครงสร้างไฟล์ทั้งหมด *(หน้าปัจจุบัน)* |
-| <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](#file-01-lesson-md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
-| <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](#file-02-workshop-md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (7 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
+| 📌 | **[00-overview.md](./00-overview.md)** | ภาพรวมโครงการอบรม, แผนการเรียนรู้ และโครงสร้างไฟล์ทั้งหมด *(หน้าปัจจุบัน)* |
+| <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](./01-lesson.md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
+| <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (7 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
 
 ---
 
@@ -28,49 +28,49 @@
 <summary>📖 <b>ดัชนีหัวข้อในคู่มือเรียน (01-lesson.md)</b></summary>
 
 #### 📘 Part 1: Laravel Foundation
-* [1. ติดตั้ง WSL 2 (Windows Subsystem for Linux 2)](#1-ติดตั้ง-wsl-2-windows-subsystem-for-linux-2)
-* [2. ติดตั้ง Stack: PHP 8.4, Composer, Node.js](#2-ติดตั้ง-stack-php-84-composer-nodejs)
-* [3. การสร้างโปรเจกต์ Laravel 13](#3-การสร้างโปรเจกต์-laravel-13)
-* [4. Git — การควบคุมเวอร์ชันและประวัติโค้ด](#4-git-การควบคุมเวอร์ชันและประวัติโค้ด)
-* [5. โครงสร้างโฟลเดอร์ของ Laravel](#5-โครงสร้างโฟลเดอร์ของ-laravel)
-* [6. การจัดการค่าคอนฟิกูเรชันผ่าน .env](#6-การจัดการค่าคอนฟิกูเรชันผ่าน-env)
-* [7. โครงสร้างสถาปัตยกรรมแบบ MVC](#7-โครงสร้างสถาปัตยกรรมแบบ-mvc-model-view-controller)
-* [8. Routes — การกำหนดเส้นทาง URL](#8-routes-การกำหนดเส้นทาง-url)
-* [9. วงจรการทำงานของ Request (Request Lifecycle)](#9-วงจรการทำงานของ-request-request-lifecycle)
-* [10. Controller — ผู้ควบคุมลอจิกและประสานงาน](#10-controller-ผู้ควบคุมลอจิกและประสานงาน)
-* [11. Middleware — ด่านตรวจกรอง Request](#11-middleware-ด่านตรวจกรอง-request)
-* [12. HTTP Methods เปรียบเทียบกับโลกจริง](#12-http-methods-เปรียบเทียบกับโลกแห่งความเป็นจริง)
-* [13. Eloquent ORM: การเชื่อมต่อฐานข้อมูล](#13-eloquent-orm-การเชื่อมต่อและการจัดการข้อมูลในฐานข้อมูล)
-* [14. การแก้ไขปัญหา N+1 Query ด้วย Eager Loading](#14-ทำความเข้าใจและการแก้ไขปัญหา-n1-query-ด้วย-eager-loading)
-* [15. Blade — ระบบ Template Engine & Components](#15-blade-ระบบ-template-engine-components)
-* [16. การตรวจสอบข้อมูลด้วย Form Request Validation](#16-การตรวจสอบข้อมูลด้วย-form-request-validation)
-* [17. ระบบยืนยันตัวตนด้วย Starter Kit (Laravel Breeze)](#17-สรรสร้างระบบยืนยันตัวตนด้วย-starter-kit-laravel-breeze)
-* [18. คัมภีร์คำสั่งด่วน Artisan CLI Cheat Sheet](#18-คัมภีร์คำสั่งด่วนยอดนิยมสำหรับนักพัฒนา-artisan-cli-cheat-sheet)
+* [1. ติดตั้ง WSL 2 (Windows Subsystem for Linux 2)](./01-lesson.md#1-ติดตั้ง-wsl-2-windows-subsystem-for-linux-2)
+* [2. ติดตั้ง Stack: PHP 8.4, Composer, Node.js](./01-lesson.md#2-ติดตั้ง-stack-php-84-composer-nodejs)
+* [3. การสร้างโปรเจกต์ Laravel 13](./01-lesson.md#3-การสร้างโปรเจกต์-laravel-13)
+* [4. Git — การควบคุมเวอร์ชันและประวัติโค้ด](./01-lesson.md#4-git-การควบคุมเวอร์ชันและประวัติโค้ด)
+* [5. โครงสร้างโฟลเดอร์ของ Laravel](./01-lesson.md#5-โครงสร้างโฟลเดอร์ของ-laravel)
+* [6. การจัดการค่าคอนฟิกูเรชันผ่าน .env](./01-lesson.md#6-การจัดการค่าคอนฟิกูเรชันผ่าน-env)
+* [7. โครงสร้างสถาปัตยกรรมแบบ MVC](./01-lesson.md#7-โครงสร้างสถาปัตยกรรมแบบ-mvc-model-view-controller)
+* [8. Routes — การกำหนดเส้นทาง URL](./01-lesson.md#8-routes-การกำหนดเส้นทาง-url)
+* [9. วงจรการทำงานของ Request (Request Lifecycle)](./01-lesson.md#9-วงจรการทำงานของ-request-request-lifecycle)
+* [10. Controller — ผู้ควบคุมลอจิกและประสานงาน](./01-lesson.md#10-controller-ผู้ควบคุมลอจิกและประสานงาน)
+* [11. Middleware — ด่านตรวจกรอง Request](./01-lesson.md#11-middleware-ด่านตรวจกรอง-request)
+* [12. HTTP Methods เปรียบเทียบกับโลกจริง](./01-lesson.md#12-http-methods-เปรียบเทียบกับโลกแห่งความเป็นจริง)
+* [13. Eloquent ORM: การเชื่อมต่อฐานข้อมูล](./01-lesson.md#13-eloquent-orm-การเชื่อมต่อและการจัดการข้อมูลในฐานข้อมูล)
+* [14. การแก้ไขปัญหา N+1 Query ด้วย Eager Loading](./01-lesson.md#14-ทำความเข้าใจและการแก้ไขปัญหา-n1-query-ด้วย-eager-loading)
+* [15. Blade — ระบบ Template Engine & Components](./01-lesson.md#15-blade-ระบบ-template-engine-components)
+* [16. การตรวจสอบข้อมูลด้วย Form Request Validation](./01-lesson.md#16-การตรวจสอบข้อมูลด้วย-form-request-validation)
+* [17. ระบบยืนยันตัวตนด้วย Starter Kit (Laravel Breeze)](./01-lesson.md#17-ระบบยืนยันตัวตนจาก-starter-kit-laravel-breeze)
+* [18. คัมภีร์คำสั่งด่วน Artisan CLI Cheat Sheet](./01-lesson.md#18-คัมภีร์คำสั่งด่วนยอดนิยมสำหรับนักพัฒนา-artisan-cli-cheat-sheet)
 
 #### 🤖 Part 2: AI-Assisted Development
-* [19. เครื่องมือ AI Developer Agents ประจำปี 2026](#19-เครื่องมือ-ai-developer-agents-ประจำปี-2026)
-* [20. หลักการเบื้องต้นของ AI Agent (Tokens, Context, Rate limits)](#20-หลักการเบื้องต้นของ-ai-agent-ที่ทุกคนต้องตระหนักรู้)
-* [21. Claude Code](#21-claude-code)
-* [22. Antigravity CLI](#22-antigravity-cli)
-* [23. OpenCode](#23-opencode)
-* [24. Laravel Boost AI — Skills และ MCP](#24-laravel-boost-ai-ยกระดับทัศนวิสัยความฉลาดของ-ai-agent)
-* [25. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI](#25-prompt-patterns-สูตรสำเร็จในการคุยกับ-ai-ให้ได้งานสูงสุด)
+* [19. เครื่องมือ AI Developer Agents ประจำปี 2026](./01-lesson.md#19-เครื่องมือ-ai-developer-agents-ประจำปี-2026)
+* [20. หลักการเบื้องต้นของ AI Agent (Tokens, Context, Rate limits)](./01-lesson.md#20-หลักการเบื้องต้นของ-ai-agent-ที่ทุกคนต้องตระหนักรู้)
+* [21. Claude Code](./01-lesson.md#21-claude-code)
+* [22. Antigravity CLI](./01-lesson.md#22-antigravity-cli)
+* [23. OpenCode](./01-lesson.md#23-opencode)
+* [24. Laravel Boost AI — Skills และ MCP](./01-lesson.md#24-laravel-boost-ai-ให้-ai-agent-เข้าใจโครงสร้างโปรเจกต์)
+* [25. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI](./01-lesson.md#25-prompt-patterns-สูตรสำเร็จในการคุยกับ-ai-ให้ได้งานสูงสุด)
 
 </details>
 
 <details>
 <summary>🛠️ <b>ดัชนีขั้นตอนในเวิร์กชอป (02-workshop.md)</b></summary>
 
-* [1. ภาพรวมระบบ & MVP Database Schema](#1-ภาพรวมระบบ-โครงสร้างข้อมูลอย่างง่าย-mvp-database-schema)
-* [2. ขั้นตอนปฏิบัติการ Workshop (7 ขั้นตอน)](#2-ขั้นตอนปฏิบัติการ-workshop-7-steps-with-short-prompts)
-  * [Step 1: สร้างฐานข้อมูลและ Eloquent Models (P-01)](#step-1-สร้างฐานข้อมูลและ-eloquent-models-p-01)
-  * [Step 2: ข้อมูลจำลองสำหรับทดสอบระบบ (P-02)](#step-2-ข้อมูลจำลองสำหรับทดสอบระบบ-p-02)
-  * [Step 3: บริการคัดกรองการจองทับซ้อน (BookingService) (P-03)](#step-3-บริการคัดกรองการจองทับซ้อน-bookingservice-p-03)
-  * [Step 4: สร้าง Controllers และระบบเส้นทาง (P-04)](#step-4-สร้าง-controllers-และระบบเส้นทาง-p-04)
-  * [Step 5: หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้ (P-05)](#step-5-หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้-p-05)
-  * [Step 6: หน้าประวัติการจองและแผงพิจารณาอนุมัติ (P-06)](#step-6-หน้าประวัติการจองและแผงพิจารณาอนุมัติ-p-06)
-  * [Step 7: หน้าควบคุมจัดการห้องของแอดมิน (P-07)](#step-7-หน้าควบคุมจัดการห้องของแอดมิน-p-07)
-* [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
+* [1. ภาพรวมระบบ & MVP Database Schema](./02-workshop.md#1-ภาพรวมระบบ-โครงสร้างข้อมูลอย่างง่าย-mvp-database-schema)
+* [2. ขั้นตอนปฏิบัติการ Workshop (7 ขั้นตอน)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-7-steps-with-short-prompts)
+  * [Step 1: สร้างฐานข้อมูลและ Eloquent Models (P-01)](./02-workshop.md#step-1-สร้างฐานข้อมูลและ-eloquent-models-p-01)
+  * [Step 2: ข้อมูลจำลองสำหรับทดสอบระบบ (P-02)](./02-workshop.md#step-2-ข้อมูลจำลองสำหรับทดสอบระบบ-p-02)
+  * [Step 3: บริการคัดกรองการจองทับซ้อน (BookingService) (P-03)](./02-workshop.md#step-3-บริการคัดกรองการจองทับซ้อน-bookingservice-p-03)
+  * [Step 4: สร้าง Controllers และระบบเส้นทาง (P-04)](./02-workshop.md#step-4-สร้าง-controllers-และระบบเส้นทาง-p-04)
+  * [Step 5: หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้ (P-05)](./02-workshop.md#step-5-หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้-p-05)
+  * [Step 6: หน้าประวัติการจองและแผงพิจารณาอนุมัติ (P-06)](./02-workshop.md#step-6-หน้าประวัติการจองและแผงพิจารณาอนุมัติ-p-06)
+  * [Step 7: หน้าควบคุมจัดการห้องของแอดมิน (P-07)](./02-workshop.md#step-7-หน้าควบคุมจัดการห้องของแอดมิน-p-07)
+* [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
 
 </details>
 
@@ -95,7 +95,7 @@
 
 ## 🏗️ ไฮไลท์ของเวิร์กชอป (Workshop Highlights)
 
-ใน **[02-workshop.md](#file-02-workshop-md)** เราจะร่วมสร้างระบบจองห้องประชุมระดับองค์กรรูปแบบ MVP (Minimum Viable Product) ซึ่งเน้นฟังก์ชันสำคัญที่ใช้งานได้จริง:
+ใน **[02-workshop.md](./02-workshop.md)** เราจะร่วมสร้างระบบจองห้องประชุมระดับองค์กรรูปแบบ MVP (Minimum Viable Product) ซึ่งเน้นฟังก์ชันสำคัญที่ใช้งานได้จริง:
 
 1. **3 ตารางฐานข้อมูลหลัก:** `users` (รองรับบทบาท), `rooms` (ห้องประชุมและอุปกรณ์), และ `bookings` (ข้อมูลการจองและการพิจารณา)
 2. **ระบบป้องกันจองซ้ำ (Conflict Prevention):** คัดกรองและตรวจสอบช่วงเวลาชนกันแบบเรียลไทม์

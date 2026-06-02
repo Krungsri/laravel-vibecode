@@ -311,12 +311,9 @@ DB_CONNECTION=sqlite
 ## 7. โครงสร้างสถาปัตยกรรมแบบ MVC (Model-View-Controller)
 
 ```mermaid
-flowchart LR
-    %% Browser / Client Group
-    subgraph Client ["🌐 Client Side (Browser)"]
-        U["💻 Browser Request<br>(ผู้ใช้ส่งคำขอเข้าชมเว็บ)"]
-        U2["✅ HTML / JSON Response<br>(ผลลัพธ์ตอบกลับแสดงหน้าจอ)"]
-    end
+flowchart TD
+    %% Browser Request (Top)
+    U["💻 Browser Request<br>(ผู้ใช้ส่งคำขอเข้าชมเว็บ)"]
 
     %% Routing & Gatekeepers
     subgraph Gate ["🛡️ Entry Gate (ระบบนำทาง & กรองข้อมูล)"]
@@ -324,15 +321,19 @@ flowchart LR
         M["👮 <b>Middleware</b><br>(ตรวจสอบสิทธิ์ / สแกนความปลอดภัย)"]
     end
 
-    %% MVC Core Architecture
+    %% MVC Core Architecture (LR inside)
     subgraph MVC ["🧩 MVC Core (หัวใจหลักระบบหลังบ้าน)"]
-        C["🧠 <b>Controller</b><br>(app/Http/Controllers)<br><i>*สมองควบคุมตรรกะงาน*</i>"]
-        Mo["🗄️ <b>Model</b><br>(app/Models)<br><i>*จัดการข้อมูล & กฎ*</i>"]
-        V["🎨 <b>View / Pages</b><br>(resources/js/Pages / Blade)<br><i>*ส่วนแสดงผลเว็บ*</i>"]
+        direction LR
+        C["🧠 <b>Controller</b><br>(app/Http/Controllers)<br><i>สมองควบคุมตรรกะงาน</i>"]
+        Mo["🗄️ <b>Model</b><br>(app/Models)<br><i>จัดการข้อมูล & กฎ</i>"]
+        V["🎨 <b>View / Pages</b><br>(resources/js/Pages / Blade)<br><i>ส่วนแสดงผลเว็บ</i>"]
     end
 
     %% Database
     DB[("💾 <b>Database</b><br>(SQLite / MySQL)")]
+
+    %% Response (Bottom)
+    U2["✅ HTML / JSON Response<br>(ผลลัพธ์ตอบกลับแสดงหน้าจอ)"]
 
     %% Process flow
     U --> R
@@ -343,21 +344,20 @@ flowchart LR
     C --> V
     V --> U2
 
-    %% Premium CSS/Mermaid Styling
-    style Client fill:#111827,stroke:#374151,stroke-width:2px,color:#9ca3af
+    %% Styling
     style Gate fill:#1e1b4b,stroke:#4338ca,stroke-width:2px,color:#c7d2fe
     style MVC fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#93c5fd
-    
+
     style U fill:#374151,stroke:#6b7280,stroke-width:2px,color:#ffffff,font-weight:bold
     style U2 fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
-    
+
     style R fill:#db2777,stroke:#f472b6,stroke-width:2px,color:#ffffff,font-weight:bold
     style M fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-    
+
     style C fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
     style Mo fill:#0d9488,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
     style V fill:#e11d48,stroke:#fb7185,stroke-width:2px,color:#ffffff,font-weight:bold
-    
+
     style DB fill:#0284c7,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
