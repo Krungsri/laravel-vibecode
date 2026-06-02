@@ -14,7 +14,8 @@ export default withMermaid(
       nav: [
         { text: 'ภาพรวม', link: '/00-overview' },
         { text: 'บทเรียน', link: '/01-lesson' },
-        { text: 'Workshop', link: '/02-workshop' },
+        { text: 'Workshop P1', link: '/02-workshop' },
+        { text: 'Workshop P2', link: '/03-workshop-phase2' },
       ],
 
       sidebar: [
@@ -28,7 +29,8 @@ export default withMermaid(
         {
           text: 'Workshop',
           items: [
-            { text: '🏗️ ระบบจองห้องประชุม', link: '/02-workshop' },
+            { text: '🏗️ Phase 1: ระบบจองห้องประชุม (MVP)', link: '/02-workshop' },
+            { text: '📧 Phase 2: แจ้งเตือนและอีเมล', link: '/03-workshop-phase2' },
           ],
         },
       ],

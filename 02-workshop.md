@@ -257,11 +257,11 @@ git commit -m "feat: complete core meeting room booking CRUD system (MVP)"
 
 ---
 
-## 4. ตัวอย่าง Prompt สำหรับ Phase 2: แจ้งเตือนและอีเมล (Bonus)
+## 4. ถัดไป: Phase 2 — ระบบแจ้งเตือนและอีเมล
 
-เมื่อระบบ MVP ทำงานสมบูรณ์แล้ว สามารถเสริม 2 ฟีเจอร์ต่อไปนี้ด้วย Prompt สั้นๆ:
+ดำเนินการต่อได้ที่ **[03-workshop-phase2.md](./03-workshop-phase2.md)**
 
-| ฟีเจอร์ | Short Prompt |
-|:---|:---|
-| **In-App Notification** | `สร้าง Laravel Notification และ Inertia shared data สำหรับแจ้งเตือนในระบบเมื่อ booking ถูก approved หรือ rejected` |
-| **Mail Alert** | `สร้าง Mailable สำหรับส่งอีเมลยืนยันเมื่อจองสำเร็จ และแจ้งผลอนุมัติพร้อม rejection_note ให้ครูทางอีเมล` |
+ครอบคลุม:
+- ติดตั้งและใช้งาน **Mailpit** บน WSL สำหรับทดสอบอีเมลในเครื่อง
+- **In-App Notification** (กระดิ่งแจ้งเตือน) เมื่อสถานะจองเปลี่ยน
+- **Mail Alert** อีเมลยืนยันการจองและแจ้งผลอนุมัติ
