@@ -112,19 +112,7 @@
 
 ### 🛠️ เทคโนโลยีและเครื่องมือที่ใช้ (Tech Stack & Tools)
 
-<div align="center">
-  <img src="https://thesvg.org/icons/laravel/default.svg" width="36" height="36" title="Laravel" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/php/default.svg" width="56" height="36" title="PHP" style="background:#4F5D95;border-radius:4px;padding:3px;margin: 0 8px;">
-  <img src="https://thesvg.org/icons/composer/default.svg" width="36" height="36" title="Composer" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/react/default.svg" width="36" height="36" title="React" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/inertia/default.svg" width="36" height="36" title="Inertia.js" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/vite/default.svg" width="36" height="36" title="Vite" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/sqlite/default.svg" width="36" height="36" title="SQLite" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/git/default.svg" width="36" height="36" title="Git" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/ubuntu/default.svg" width="36" height="36" title="Ubuntu" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/anthropic/default.svg" width="36" height="36" title="Claude Code" style="margin: 0 8px;">
-  <img src="https://thesvg.org/icons/google-antigravity/default.svg" width="36" height="36" title="Antigravity CLI" style="margin: 0 8px;">
-</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;"><img src="https://thesvg.org/icons/laravel/default.svg" width="36" height="36" title="Laravel"><img src="https://thesvg.org/icons/php/default.svg" width="56" height="36" title="PHP" style="background:#4F5D95;border-radius:4px;padding:3px;"><img src="https://thesvg.org/icons/composer/default.svg" width="36" height="36" title="Composer"><img src="https://thesvg.org/icons/react/default.svg" width="36" height="36" title="React"><img src="https://thesvg.org/icons/inertia/default.svg" width="36" height="36" title="Inertia.js"><img src="https://thesvg.org/icons/vite/default.svg" width="36" height="36" title="Vite"><img src="https://thesvg.org/icons/sqlite/default.svg" width="36" height="36" title="SQLite"><img src="https://thesvg.org/icons/git/default.svg" width="36" height="36" title="Git"><img src="https://thesvg.org/icons/ubuntu/default.svg" width="36" height="36" title="Ubuntu"><img src="https://thesvg.org/icons/anthropic/default.svg" width="36" height="36" title="Claude Code"><img src="https://thesvg.org/icons/google-antigravity/default.svg" width="36" height="36" title="Antigravity CLI"></div>
 
 ---
 *จัดทำขึ้นเพื่อส่งเสริมความรู้การเขียนโปรแกรมและการใช้งาน AI สำหรับการพัฒนาแอปพลิเคชันยุคใหม่*

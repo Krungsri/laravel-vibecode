@@ -1067,18 +1067,7 @@ php artisan boost:install
 
 ## บทสรุปของ Bootcamp
 
-<p>
-  <img src="https://thesvg.org/icons/laravel/default.svg" width="28" height="28" title="Laravel">
-  <img src="https://thesvg.org/icons/php/default.svg" width="44" height="28" title="PHP" style="background:#4F5D95;border-radius:4px;padding:2px">
-  <img src="https://thesvg.org/icons/composer/default.svg" width="28" height="28" title="Composer">
-  <img src="https://thesvg.org/icons/react/default.svg" width="28" height="28" title="React">
-  <img src="https://thesvg.org/icons/inertia/default.svg" width="28" height="28" title="Inertia.js">
-  <img src="https://thesvg.org/icons/vite/default.svg" width="28" height="28" title="Vite">
-  <img src="https://thesvg.org/icons/mysql/default.svg" width="28" height="28" title="MySQL" style="background:#00618A;border-radius:4px;padding:2px">
-  <img src="https://thesvg.org/icons/redis/default.svg" width="28" height="28" title="Redis">
-  <img src="https://thesvg.org/icons/git/default.svg" width="28" height="28" title="Git">
-  <img src="https://thesvg.org/icons/ubuntu/default.svg" width="28" height="28" title="Ubuntu">
-</p>
+<p><img src="https://thesvg.org/icons/laravel/default.svg" width="28" height="28" title="Laravel"><img src="https://thesvg.org/icons/php/default.svg" width="44" height="28" title="PHP" style="background:#4F5D95;border-radius:4px;padding:2px"><img src="https://thesvg.org/icons/composer/default.svg" width="28" height="28" title="Composer"><img src="https://thesvg.org/icons/react/default.svg" width="28" height="28" title="React"><img src="https://thesvg.org/icons/inertia/default.svg" width="28" height="28" title="Inertia.js"><img src="https://thesvg.org/icons/vite/default.svg" width="28" height="28" title="Vite"><img src="https://thesvg.org/icons/mysql/default.svg" width="28" height="28" title="MySQL" style="background:#00618A;border-radius:4px;padding:2px"><img src="https://thesvg.org/icons/redis/default.svg" width="28" height="28" title="Redis"><img src="https://thesvg.org/icons/git/default.svg" width="28" height="28" title="Git"><img src="https://thesvg.org/icons/ubuntu/default.svg" width="28" height="28" title="Ubuntu"></p>
 
 ### 🛠 สิ่งที่คุณได้เรียนรู้ใน Part 1 — Laravel Foundation
 - [x] **WSL 2 & Ubuntu**: สภาพแวดล้อมที่เหมาะสมที่สุดในการพัฒนาโค้ดแบบ Native Linux
