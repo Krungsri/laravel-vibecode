@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Workshop จองห้องประชุม
       link: /02-workshop
+    - theme: alt
+      text: Workshop Phase 2 (Notification)
+      link: /03-workshop-phase2
 
 features:
   - icon: 🤖
@@ -26,4 +29,7 @@ features:
   - icon: 🏗️
     title: Workshop จองห้องประชุม
     details: ลงมือสร้างระบบ Approval Workflow จริงด้วย 7 Short Prompts ใน 3 ชั่วโมง
+  - icon: 📧
+    title: Workshop Phase 2 (Notification)
+    details: เสริมระบบด้วย In-App Notification และ Mail Alert ผ่าน Mailpit ใน 5 ขั้นตอน
 ---

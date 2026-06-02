@@ -17,6 +17,7 @@
 | 📌 | **[00-overview.md](./00-overview.md)** | ภาพรวมโครงการอบรม, แผนการเรียนรู้ และโครงสร้างไฟล์ทั้งหมด *(หน้าปัจจุบัน)* |
 | <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](./01-lesson.md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
 | <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (7 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
+| 📧 | **[03-workshop-phase2.md](./03-workshop-phase2.md)** | **Workshop Phase 2:** เสริมระบบด้วย **In-App Notification** และ **Mail Alert** ผ่าน Mailpit รวม 5 ขั้นตอน (Steps 8–12) |
 
 ---
 
@@ -71,6 +72,21 @@
   * [Step 6: หน้าประวัติการจองและแผงพิจารณาอนุมัติ (P-06)](./02-workshop.md#step-6-หน้าประวัติการจองและแผงพิจารณาอนุมัติ-p-06)
   * [Step 7: หน้าควบคุมจัดการห้องของแอดมิน (P-07)](./02-workshop.md#step-7-หน้าควบคุมจัดการห้องของแอดมิน-p-07)
 * [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
+
+</details>
+
+<details>
+<summary>📧 <b>ดัชนีขั้นตอนในเวิร์กชอป Phase 2 (03-workshop-phase2.md)</b></summary>
+
+* [ข้อกำหนดเบื้องต้น (Prerequisites)](./03-workshop-phase2.md#-สิ่งที่ต้องเตรียมก่อนเริ่ม-prerequisites)
+* [1. Mailpit — Email Testing บน WSL](./03-workshop-phase2.md#1-mailpit--email-testing-บน-wsl)
+* [2. ขั้นตอนปฏิบัติการ Phase 2 (5 Steps)](./03-workshop-phase2.md#2-ขั้นตอนปฏิบัติการ-phase-2-5-steps)
+  * [Step 8: ตั้งค่า Mailpit และตาราง Notifications (P-08)](./03-workshop-phase2.md#step-8-ตั้งค่า-mailpit-และตาราง-notifications-p-08)
+  * [Step 9: สร้าง Notification สำหรับแจ้งผลการพิจารณา (P-09)](./03-workshop-phase2.md#step-9-สร้าง-notification-สำหรับแจ้งผลการพิจารณา-p-09)
+  * [Step 10: สร้าง Mailable สำหรับยืนยันการจอง (P-10)](./03-workshop-phase2.md#step-10-สร้าง-mailable-สำหรับยืนยันการจอง-p-10)
+  * [Step 11: เชื่อม Notification และ Mail เข้า Controllers (P-11)](./03-workshop-phase2.md#step-11-เชื่อม-notification-และ-mail-เข้า-controllers-p-11)
+  * [Step 12: หน้าจอกระดิ่งแจ้งเตือน React (P-12)](./03-workshop-phase2.md#step-12-หน้าจอกระดิ่งแจ้งเตือน-react-p-12)
+* [3. ตารางตรวจสอบผลงาน Phase 2](./03-workshop-phase2.md#3-ตารางตรวจสอบผลงาน-phase-2)
 
 </details>
 
