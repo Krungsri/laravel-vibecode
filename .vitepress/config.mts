@@ -13,6 +13,7 @@ export default withMermaid(
 
       nav: [
         { text: 'ภาพรวม', link: '/00-overview' },
+        { text: 'ความต้องการระบบ', link: '/system-requirements' },
         { text: 'บทเรียน', link: '/01-lesson' },
         { text: 'Workshop P1', link: '/02-workshop' },
         { text: 'Workshop P2', link: '/03-workshop-phase2' },
@@ -23,6 +24,7 @@ export default withMermaid(
           text: 'Laravel + AI Agent Bootcamp',
           items: [
             { text: '📋 ภาพรวม & Agenda', link: '/00-overview' },
+            { text: '💻 ความต้องการระบบ (Requirements)', link: '/system-requirements' },
             { text: '📚 บทเรียนหลัก (Part 1–2)', link: '/01-lesson' },
           ],
         },
@@ -58,7 +60,7 @@ export default withMermaid(
     mermaid: {
       theme: 'default',
       themeVariables: {
-        fontFamily: '"Trebuchet MS", Verdana, Arial, sans-serif',
+        fontFamily: '"Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       },
     },
   })

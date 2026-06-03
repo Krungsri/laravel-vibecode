@@ -1,8 +1,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code/index.css');
 
-/* Main content uses Sarabun */
-.vp-doc {
-  font-family: 'Sarabun', sans-serif;
+:root {
+  /* Fonts & Legibility */
+  --vp-font-family-base: 'Sarabun', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --vp-font-family-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --vp-doc-line-height: 1.8;
+
+  /* Theme Brand Colors (Light Mode - Deep Professional Corporate Navy & Royal Blue) */
+  --vp-c-brand-1: #0f172a; /* Slate 900 (Corporate Charcoal) */
+  --vp-c-brand-2: #1e3a8a; /* Navy Blue (Primary Link Accent) */
+  --vp-c-brand-3: #2563eb; /* Royal Blue (Hover / Interaction) */
+  --vp-c-brand-soft: rgba(30, 58, 138, 0.06);
+
+  /* Page custom transitions */
+  --vp-transition-duration: 0.25s;
+}
+
+.dark {
+  /* Theme Brand Colors (Dark Mode - Clean High-Contrast Slate Blue) */
+  --vp-c-brand-1: #38bdf8; /* Sky 400 */
+  --vp-c-brand-2: #0ea5e9; /* Sky 500 */
+  --vp-c-brand-3: #2563eb; /* Blue 600 */
+  --vp-c-brand-soft: rgba(56, 189, 248, 0.08);
+}
+
+/* Formal Headings */
+.vp-doc h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.vp-doc h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--vp-c-divider);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--vp-c-brand-2);
+}
+
+.vp-doc h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Modern & Professional Tables */
+.vp-doc table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-brand-1) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 12px 18px;
+  border-bottom: 2px solid var(--vp-c-divider);
+  text-align: left;
+}
+
+.vp-doc td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none;
+}
+
+.vp-doc tr:hover td {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.dark .vp-doc th {
+  background-color: var(--vp-c-bg-soft) !important;
+  color: var(--vp-c-brand-1) !important;
+  border-bottom: 2px solid var(--vp-c-brand-1);
+}
+
+/* Professional Blockquote (Callout) */
+.vp-doc blockquote {
+  margin: 1.75rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--vp-c-brand-2);
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 0 8px 8px 0;
+  color: var(--vp-c-text-1);
+  box-shadow: inset 2px 0 0 0 var(--vp-c-brand-3);
+}
+
+.vp-doc blockquote p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-style: normal;
+}
+
+/* Details summary cards */
+.vp-doc details {
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  transition: border-color var(--vp-transition-duration), box-shadow var(--vp-transition-duration);
+}
+
+.vp-doc details:hover {
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.vp-doc summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--vp-c-brand-2);
+  outline: none;
+  user-select: none;
+}
+
+.vp-doc summary:hover {
+  color: var(--vp-c-brand-3);
+}
+
+/* Custom Container Block Adjustments */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
 }
 
 /* Fix: Mermaid foreignObject clips bottom line when browser uses Thai system font (Sarabun) */
@@ -20,4 +163,106 @@
 .vp-doc li img {
   display: inline;
   vertical-align: middle;
+}
+
+/* --- Mermaid Diagram Custom Styling --- */
+/* Match diagrams with the site font */
+.mermaid svg,
+.mermaid svg * {
+  font-family: var(--vp-font-family-base) !important;
+}
+
+/* Uniform Node Shapes styling (flowcharts) */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon,
+.mermaid .node path,
+.mermaid .node .label-container {
+  fill: var(--vp-c-bg-soft) !important;
+  stroke: var(--vp-c-brand-2) !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important; /* Force rounded corners */
+  ry: 8px !important;
+}
+
+/* Hover effect on Nodes */
+.mermaid .node:hover rect,
+.mermaid .node:hover circle,
+.mermaid .node:hover polygon,
+.mermaid .node:hover path,
+.mermaid .node:hover .label-container {
+  fill: var(--vp-c-brand-soft) !important;
+  stroke: var(--vp-c-brand-3) !important;
+  cursor: pointer;
+}
+
+/* Node Text */
+.mermaid .node .label,
+.mermaid .node foreignObject span,
+.mermaid .node foreignObject div {
+  color: var(--vp-c-text-1) !important;
+  font-weight: 500 !important;
+}
+
+/* Flowchart Edges / Connectors */
+.mermaid .edgePath .path {
+  stroke: var(--vp-c-text-3) !important;
+  stroke-width: 1.5px !important;
+}
+
+/* Flowchart Arrowheads */
+.mermaid .marker {
+  fill: var(--vp-c-text-3) !important;
+  stroke: none !important;
+}
+
+/* Edge Labels (text on lines) */
+.mermaid .edgeLabel rect {
+  fill: var(--vp-c-bg) !important;
+  rx: 4px;
+  ry: 4px;
+}
+
+.mermaid .edgeLabel span {
+  color: var(--vp-c-text-2) !important;
+  font-size: 0.8rem !important;
+}
+
+/* Subgraphs (clusters) */
+.mermaid .cluster rect {
+  fill: var(--vp-c-bg-alt) !important;
+  stroke: var(--vp-c-divider) !important;
+  stroke-width: 1.5px !important;
+  rx: 12px !important;
+  ry: 12px !important;
+}
+
+.mermaid .cluster-label span {
+  color: var(--vp-c-text-1) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+/* ER Diagrams Customization */
+.mermaid .entityBox {
+  fill: var(--vp-c-bg-soft) !important;
+  stroke: var(--vp-c-brand-2) !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+}
+
+.mermaid .entityLabel {
+  fill: var(--vp-c-text-1) !important;
+  font-weight: 600 !important;
+}
+
+.mermaid .attributeBox {
+  fill: var(--vp-c-bg-alt) !important;
+  stroke: var(--vp-c-divider) !important;
+  stroke-width: 1px !important;
+}
+
+.mermaid .relationshipLabel {
+  fill: var(--vp-c-bg) !important;
 }

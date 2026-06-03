@@ -15,6 +15,7 @@
 | ลำดับ | ไฟล์คู่มือ | รายละเอียดเนื้อหา |
 | :---: | :--- | :--- |
 | 📌 | **[00-overview.md](./00-overview.md)** | ภาพรวมโครงการอบรม, แผนการเรียนรู้ และโครงสร้างไฟล์ทั้งหมด *(หน้าปัจจุบัน)* |
+| 💻 | **[system-requirements.md](./system-requirements.md)** | **ความต้องการของระบบ:** สเปกฮาร์ดแวร์, ระบบปฏิบัติการ, สแต็กซอฟต์แวร์, และเครื่องมือ AI ที่จำเป็นต้องเตรียมตัวก่อนเข้าอบรม |
 | <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](./01-lesson.md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
 | <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (7 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
 | 📧 | **[03-workshop-phase2.md](./03-workshop-phase2.md)** | **Workshop Phase 2:** เสริมระบบด้วย **In-App Notification** และ **Mail Alert** ผ่าน Mailpit รวม 5 ขั้นตอน (Steps 8–12) |

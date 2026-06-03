@@ -179,12 +179,15 @@ Which database will your application use?
 ***Laravel Boost** เป็นตัวสร้าง Context ของโปรเจกต์สำหรับส่งต่อให้ AI Agents (เช่น Claude Code หรือ Antigravity) ช่วยให้ AI เข้าใจโครงสร้าง Codebase ได้อย่างแม่นยำ*
 
 #### ขั้นตอนที่ 7 — Authentication Features (ฟีเจอร์เพิ่มเติม)
-เลือกเปิดใช้งานฟีเจอร์ที่ต้องการ (Spacebar เพื่อเลือก/ยกเลิก):
-- [x] Email verification
-- [x] Registration
-- [x] Password confirmation
-- [x] Two-factor authentication
-- [x] Passkeys
+```
+Which authentication features would you like to install?
+ [x] Email verification
+ [x] Registration
+ [x] Password confirmation
+ [x] Two-factor authentication
+ [x] Passkeys
+```
+*เลือกเปิดใช้งานฟีเจอร์ที่ต้องการ (กด Spacebar เพื่อเลือก/ยกเลิกหัวข้อ และกด Enter เพื่อตกลง)*
 
 #### ขั้นตอนที่ 8 — npm Dependencies
 ```
@@ -885,8 +888,8 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 # ยืนยันการติดตั้งและเปิดใช้งานสำเร็จ
 agy --version
 
-# ตั้งค่า API Key ส่วนตัว (เข้าไปสร้างฟรีได้ที่ aistudio.google.com)
-export GEMINI_API_KEY="AIzaSyYourKeyHere..."
+# ยืนยันตัวตนด้วย Google Native OAuth (ระบบจะเปิดเบราว์เซอร์ให้กดยืนยันตัวตนด้วยบัญชี Google)
+agy auth login
 
 # เข้าโฟลเดอร์งานและเปิดตัวเอเจนต์
 cd ~/projects/myApp
@@ -946,7 +949,7 @@ mindmap
    มาตรฐานความปลอดภัยเปิด (พัฒนาโดย Anthropic) ที่อนุญาตให้ AI Agent ส่งคำขอรันโปรแกรมระบบหลังบ้านเพื่อเรียกดูข้อมูล คิวรีฐานข้อมูล หรือสั่งงานเครื่องของคุณได้อย่างปลอดภัยผ่านโครงสร้างแบบขออนุมัติก่อนเสมอ
 
 ```mermaid
-flowchart TD
+flowchart LR
     AI["🤖 <b>AI Agent</b><br>(Gemini / Claude)"]
     MCP["🔌 <b>MCP Server</b><br>(laravel/boost)"]
     
@@ -957,23 +960,17 @@ flowchart TD
         CLI["💻 Artisan CLI & Tinker REPL"]
         DOC["📖 Version-Aware Laravel Docs"]
         LOG["🚨 error-logs & browser-log"]
+        
+        DB ~~~ RT
+        RT ~~~ CLI
+        CLI ~~~ DOC
+        DOC ~~~ LOG
     end
 
-    AI -- "1. สั่งวิเคราะห์ลอจิก" --> MCP
-    MCP -- "2. ประมวลผลและดึงข้อมูล" --> tools
-    tools -- "3. ส่งผลลัพธ์กลับแบบ Raw Data" --> MCP
-    MCP -- "4. สรุปแนวทางแก้ไขบั๊ก" --> AI
-
-
-    style AI fill:#7c3aed,stroke:#c084fc,stroke-width:2px,color:#ffffff,font-weight:bold
-    style MCP fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-    style tools fill:#111827,stroke:#374151,stroke-width:2px,stroke-dasharray: 5 5,color:#bac2de
-    
-    style DB fill:#1e2937,stroke:#3b82f6,stroke-width:1px,color:#e5e7eb
-    style RT fill:#1e2937,stroke:#10b981,stroke-width:1px,color:#e5e7eb
-    style CLI fill:#1e2937,stroke:#f43f5e,stroke-width:1px,color:#e5e7eb
-    style DOC fill:#1e2937,stroke:#8b5cf6,stroke-width:1px,color:#e5e7eb
-    style LOG fill:#1e2937,stroke:#ec4899,stroke-width:1px,color:#e5e7eb
+    AI -- "1. วิเคราะห์ลอจิก" --> MCP
+    MCP -- "2. เรียกดึงข้อมูล" --> tools
+    tools -- "3. ส่งผลลัพธ์กลับ (Raw Data)" --> MCP
+    MCP -- "4. สรุปแนวทางการแก้ไข" --> AI
 ```
 
 ---
@@ -996,24 +993,25 @@ flowchart TD
 
 ---
 
-### 📦 ขั้นตอนการติดตั้งและเปิดทัศนวิสัยร่วมกับ AI Agent
+### 📦 วิธีติดตั้งและเชื่อมต่อโปรเจกต์กับ AI Agent
 
 > [!NOTE]
-> **หากสร้างโปรเจกต์ด้วย `laravel new` และเลือก Yes ที่ขั้นตอน "Laravel Boost" แล้ว** — ข้ามขั้นตอนที่ 1 ได้เลย Laravel Boost ถูกติดตั้งในโปรเจกต์แล้ว รันแค่ `boost:install` เพื่อเชื่อมต่อกับ AI Agent ที่คุณใช้งาน
+> **ถ้าคุณสร้างโปรเจกต์ด้วยคำสั่ง `laravel new` และเลือก Yes ในขั้นตอน "Laravel Boost" แล้ว**
+> คุณข้ามขั้นตอนที่ 1 ไปได้เลย (เพราะมีแพ็คเกจอยู่แล้ว) ให้รันเฉพาะคำสั่งในขั้นตอนที่ 2 เพื่อเชื่อมต่อใช้งานกับ AI Agent ได้ทันที
 >
-> หากเป็น **โปรเจกต์เก่าที่ยังไม่มี** ให้ทำตามขั้นตอนทั้งหมดด้านล่าง:
+> แต่ถ้าเป็น **โปรเจกต์เดิมที่มีอยู่แล้ว** ให้ทำตามขั้นตอนทั้งหมดนี้ครับ:
 
 ```bash
-# 1. ติดตั้ง Laravel Boost ลงในโปรเจกต์เฉพาะสภาพแวดล้อมเพื่อการพัฒนา (Development mode)
+# 1. ติดตั้ง Laravel Boost ลงในโปรเจกต์ (ติดตั้งเฉพาะช่วงพัฒนา)
 composer require laravel/boost --dev
 
-# 2. รันเวิร์กชอปคำสั่งติดตั้งเพื่อทำการเชื่อมต่อและสร้าง AI Guidelines
+# 2. รันคำสั่งตั้งค่าเพื่อเชื่อมต่อระบบเข้ากับ AI Agent
 php artisan boost:install
 ```
 
 > [!IMPORTANT]
-> **💡 การทำงานเบื้องหลังของ `boost:install`**
-> เมื่อรันคำสั่งติดตั้ง ระบบจะสแกนหาตัวช่วยเขียนโค้ดในคอมพิวเตอร์ของคุณ (เช่น Cursor, Claude Code, หรือ Antigravity) จากนั้นจะนำเอาไฟล์ตั้งค่า (Configuration) ไปผูกเชื่อมโยง MCP Server เอนจิ้นของ Laravel เข้ากับระบบประมวลผลคำสั่งของบอตเหล่านั้นโดยอัตโนมัติทันที
+> **💡 เบื้องหลังการทำงานของคำสั่ง `boost:install`**
+> ทันทีที่รันคำสั่งนี้ ระบบจะสแกนหาโปรแกรมช่วยเขียนโค้ดในเครื่องของคุณ (เช่น Cursor, Claude Code หรือ Antigravity) จากนั้นจะเชื่อมต่อระบบหลังบ้านของ Laravel เข้ากับโปรแกรมเหล่านั้นโดยอัตโนมัติ เพื่อให้ AI สามารถอ่านตารางฐานข้อมูล โครงสร้างโค้ด และเข้าถึงประวัติ Error Logs มาช่วยคุณแก้บั๊กได้โดยตรงทันที
 
 ---
 
