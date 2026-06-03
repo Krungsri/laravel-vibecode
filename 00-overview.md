@@ -63,14 +63,12 @@
 <summary>🛠️ <b>ดัชนีขั้นตอนในเวิร์กชอป (02-workshop.md)</b></summary>
 
 * [1. ภาพรวมระบบ & MVP Database Schema](./02-workshop.md#1-ภาพรวมระบบ-โครงสร้างข้อมูลอย่างง่าย-mvp-database-schema)
-* [2. ขั้นตอนปฏิบัติการ Workshop (7 ขั้นตอน)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-7-steps-with-short-prompts)
-  * [Step 1: สร้างฐานข้อมูลและ Eloquent Models (P-01)](./02-workshop.md#step-1-สร้างฐานข้อมูลและ-eloquent-models-p-01)
-  * [Step 2: ข้อมูลจำลองสำหรับทดสอบระบบ (P-02)](./02-workshop.md#step-2-ข้อมูลจำลองสำหรับทดสอบระบบ-p-02)
-  * [Step 3: บริการคัดกรองการจองทับซ้อน (BookingService) (P-03)](./02-workshop.md#step-3-บริการคัดกรองการจองทับซ้อน-bookingservice-p-03)
-  * [Step 4: สร้าง Controllers และระบบเส้นทาง (P-04)](./02-workshop.md#step-4-สร้าง-controllers-และระบบเส้นทาง-p-04)
-  * [Step 5: หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้ (P-05)](./02-workshop.md#step-5-หน้าจอค้นหาห้องและฟอร์มจองสำหรับผู้ใช้-p-05)
-  * [Step 6: หน้าประวัติการจองและแผงพิจารณาอนุมัติ (P-06)](./02-workshop.md#step-6-หน้าประวัติการจองและแผงพิจารณาอนุมัติ-p-06)
-  * [Step 7: หน้าควบคุมจัดการห้องของแอดมิน (P-07)](./02-workshop.md#step-7-หน้าควบคุมจัดการห้องของแอดมิน-p-07)
+* [2. ขั้นตอนปฏิบัติการ Workshop (5 Steps - CRUD ทีละเมนู)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-5-steps---crud-ทีละเมนู)
+  * [Step 1: โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น (Database & Seeders)](./02-workshop.md#step-1-โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น-database--seeders)
+  * [Step 2: [เมนูที่ 1] ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน (Admin's Rooms CRUD)](./02-workshop.md#step-2-เมนูที่-1-ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน-admins-rooms-crud)
+  * [Step 3: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service)](./02-workshop.md#step-3-บริการหลัก-บริการตรวจเช็คระบบคิวจองทับซ้อน-booking-overlap-service)
+  * [Step 4: [เมนูที่ 2] ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้ (Teacher's Booking Flow)](./02-workshop.md#step-4-เมนูที่-2-ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้-teachers-booking-flow)
+  * [Step 5: [เมนูที่ 3] ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง (Staff's Approvals)](./02-workshop.md#step-5-เมนูที่-3-ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง-staffs-approvals)
 * [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
 
 </details>
