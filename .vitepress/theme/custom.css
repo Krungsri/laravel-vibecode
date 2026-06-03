@@ -7,22 +7,28 @@
   --vp-font-family-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --vp-doc-line-height: 1.8;
 
-  /* Theme Brand Colors (Light Mode - Deep Professional Corporate Navy & Royal Blue) */
-  --vp-c-brand-1: #0f172a; /* Slate 900 (Corporate Charcoal) */
-  --vp-c-brand-2: #1e3a8a; /* Navy Blue (Primary Link Accent) */
-  --vp-c-brand-3: #2563eb; /* Royal Blue (Hover / Interaction) */
-  --vp-c-brand-soft: rgba(30, 58, 138, 0.06);
+  /* Theme Brand Colors (Light Mode — Laravel Red) */
+  --vp-c-brand-1: #FF2D20; /* Laravel Red */
+  --vp-c-brand-2: #cc1f15; /* Darker Red — borders, headings */
+  --vp-c-brand-3: #ff5a4f; /* Lighter Red — hover */
+  --vp-c-brand-soft: rgba(255, 45, 32, 0.08);
 
   /* Page custom transitions */
   --vp-transition-duration: 0.25s;
 }
 
 .dark {
-  /* Theme Brand Colors (Dark Mode - Clean High-Contrast Slate Blue) */
-  --vp-c-brand-1: #38bdf8; /* Sky 400 */
-  --vp-c-brand-2: #0ea5e9; /* Sky 500 */
-  --vp-c-brand-3: #2563eb; /* Blue 600 */
-  --vp-c-brand-soft: rgba(56, 189, 248, 0.08);
+  /* Theme Brand Colors (Dark Mode — Laravel Red on warm dark) */
+  --vp-c-brand-1: #FF2D20; /* Laravel Red */
+  --vp-c-brand-2: #ff5a4f; /* Lighter Red — readable on dark bg */
+  --vp-c-brand-3: #ff7b73; /* Hover */
+  --vp-c-brand-soft: rgba(255, 45, 32, 0.12);
+
+  /* Warm dark background — matches Laravel.com dark feel */
+  --vp-c-bg: #0f0d0c;
+  --vp-c-bg-soft: #1a1614;
+  --vp-c-bg-alt: #141210;
+  --vp-c-bg-elv: #1a1614;
 }
 
 /* Formal Headings */
@@ -91,8 +97,8 @@
 }
 
 .dark .vp-doc th {
-  background-color: var(--vp-c-bg-soft) !important;
-  color: var(--vp-c-brand-1) !important;
+  background-color: #1f1210 !important;
+  color: var(--vp-c-brand-2) !important;
   border-bottom: 2px solid var(--vp-c-brand-1);
 }
 

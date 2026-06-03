@@ -132,68 +132,30 @@ laravel new myApp
 
 ตัวช่วยติดตั้งจะเปิดหน้าต่าง Interactive Wizard เพื่อถามความต้องการของเราทีละขั้นตอน:
 
-#### ขั้นตอนที่ 1 — เลือก Starter Kit
-```
-Which starter kit would you like to install?
-  None
-> React        ← เลือกอันนี้
-  Svelte / Vue / Livewire
-```
+![Laravel Interactive Wizard](/images/laravel_create_app.png)
+
+#### ขั้นตอนที่ 1 — เลือก Starter Kit → เลือก **React**
 *การเลือก **React** จะทำการติดตั้ง **React 19** + **Inertia.js** ให้โดยอัตโนมัติ ซึ่งดีที่สุดสำหรับการทำ Single Page Application (SPA)*
 
-#### ขั้นตอนที่ 2 — Authentication Provider
-```
-> Laravel's built-in authentication    ← เลือกอันนี้
-  WorkOS
-  No authentication scaffolding
-```
+#### ขั้นตอนที่ 2 — Authentication Provider → เลือก **Laravel's built-in authentication**
 *เลือก **Laravel's built-in** เพื่อใช้ระบบ Login/Register ภายในที่ปลอดภัยและไม่ต้องพึ่งพาคลาวด์ภายนอก*
 
-#### ขั้นตอนที่ 3 — Database
-```
-Which database will your application use?
-> SQLite        ← เลือกอันนี้ (Default และแนะนำสำหรับ Development)
-  MySQL
-  MariaDB
-  PostgreSQL
-  SQL Server
-```
+#### ขั้นตอนที่ 3 — Database → เลือก **SQLite**
 *SQLite ดีมากสำหรับการพัฒนาทั่วไปเพราะจัดเก็บในไฟล์เดียว ไม่ต้องรัน Database Server แยก*
 
-#### ขั้นตอนที่ 4 — Teams Support
-```
-> No    ← เลือก No (สำหรับโปรเจกต์ทั่วไป)
-```
+#### ขั้นตอนที่ 4 — Teams Support → เลือก **No**
 
-#### ขั้นตอนที่ 5 — Testing Framework
-```
-> Pest       ← เลือกอันนี้
-  PHPUnit
-```
+#### ขั้นตอนที่ 5 — Testing Framework → เลือก **Pest**
 *Pest มีไวยากรณ์ที่สะอาดตา อ่านง่าย และเหมาะกับโปรเจกต์สมัยใหม่มากกว่า PHPUnit*
 
-#### ขั้นตอนที่ 6 — Laravel Boost
-```
-> Yes    ← เลือก Yes
-```
+#### ขั้นตอนที่ 6 — Laravel Boost → เลือก **Yes**
 ***Laravel Boost** เป็นตัวสร้าง Context ของโปรเจกต์สำหรับส่งต่อให้ AI Agents (เช่น Claude Code หรือ Antigravity) ช่วยให้ AI เข้าใจโครงสร้าง Codebase ได้อย่างแม่นยำ*
 
-#### ขั้นตอนที่ 7 — Authentication Features (ฟีเจอร์เพิ่มเติม)
-```
-Which authentication features would you like to install?
- [x] Email verification
- [x] Registration
- [x] Password confirmation
- [x] Two-factor authentication
- [x] Passkeys
-```
-*เลือกเปิดใช้งานฟีเจอร์ที่ต้องการ (กด Spacebar เพื่อเลือก/ยกเลิกหัวข้อ และกด Enter เพื่อตกลง)*
+#### ขั้นตอนที่ 7 — Authentication Features → เลือก **ทั้งหมด**
+*(Email verification, Registration, Password confirmation, Two-factor authentication, Passkeys)*
+*กด Spacebar เพื่อเลือก/ยกเลิก และกด Enter เพื่อตกลง*
 
-#### ขั้นตอนที่ 8 — npm Dependencies
-```
-Would you like to run npm install --ignore-scripts?
-> Yes
-```
+#### ขั้นตอนที่ 8 — npm Dependencies → เลือก **Yes**
 
 ---
 

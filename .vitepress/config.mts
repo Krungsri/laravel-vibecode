@@ -70,9 +70,13 @@ export default withMermaid(
     },
 
     mermaid: {
-      theme: 'default',
+      theme: 'neutral',
       themeVariables: {
         fontFamily: '"Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        primaryColor: '#FF2D20',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#cc1f15',
+        lineColor: '#FF2D20',
       },
     },
   })
