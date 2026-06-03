@@ -44,7 +44,7 @@
 * [12. HTTP Methods เปรียบเทียบกับโลกจริง](./01-lesson.md#12-http-methods-เปรียบเทียบกับโลกแห่งความเป็นจริง)
 * [13. Eloquent ORM: การเชื่อมต่อฐานข้อมูล](./01-lesson.md#13-eloquent-orm-การเชื่อมต่อและการจัดการข้อมูลในฐานข้อมูล)
 * [14. การแก้ไขปัญหา N+1 Query ด้วย Eager Loading](./01-lesson.md#14-ทำความเข้าใจและการแก้ไขปัญหา-n1-query-ด้วย-eager-loading)
-* [15. Blade — ระบบ Template Engine & Components](./01-lesson.md#15-blade-ระบบ-template-engine-components)
+* [15. React & Inertia.js — ระบบ Render หน้าจอส่วนหน้า](./01-lesson.md#15-react-pages--inertiajs--ระบบ-render-หน้ากากเว็บฝั่งหน้าบ้าน)
 * [16. การตรวจสอบข้อมูลด้วย Form Request Validation](./01-lesson.md#16-การตรวจสอบข้อมูลด้วย-form-request-validation)
 * [17. ระบบยืนยันตัวตนด้วย Starter Kit (Laravel Breeze)](./01-lesson.md#17-ระบบยืนยันตัวตนจาก-starter-kit-laravel-breeze)
 * [18. คัมภีร์คำสั่งด่วน Artisan CLI Cheat Sheet](./01-lesson.md#18-คัมภีร์คำสั่งด่วนยอดนิยมสำหรับนักพัฒนา-artisan-cli-cheat-sheet)

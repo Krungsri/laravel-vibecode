@@ -15,7 +15,7 @@
 | | เริ่มโปรเจกต์ | Laravel 13, Git Version Control |
 | | โครงสร้าง | MVC, Routing, Controller, Middleware |
 | | ฐานข้อมูล | Eloquent ORM & Relationships, N+1 Query Problem |
-| | หน้าตาเว็บ | Blade Templating & Components |
+| | หน้าตาเว็บ | React Components & Inertia.js (View) |
 | | ตรวจสอบข้อมูล | Validation & Error Handling |
 | | ระบบ Auth & คำสั่ง | ส่องไฟล์จาก Starter Kit & คัมภีร์ Artisan CLI |
 | **Part 2** | AI Agent CLI | Claude Code, Antigravity CLI, OpenCode |
@@ -265,8 +265,8 @@ myApp/
 │   └── seeders/            # ไฟล์สำหรับสร้างข้อมูลตัวอย่างในฐานข้อมูล
 ├── public/                 # โฟลเดอร์หน้าบ้านสำหรับเซิร์ฟเวอร์รัน (index.php, static assets)
 ├── resources/
-│   └── js/                 # ไฟล์ Frontend React (กรณีใช้ Inertia)
-│   └── views/              # ไฟล์ Blade Template (กรณีใช้ Server-Side Rendering)
+│   ├── js/                 # ส่วนหน้าบ้าน React Components (Pages/Components)
+│   └── views/              # ไฟล์ app.blade.php (หน้ากาก HTML Shell หลักสำหรับ Inertia)
 ├── routes/
 │   └── web.php             # ไฟล์กำหนดทิศทาง URL ของหน้าเว็บ
 ├── .env                    # ไฟล์สำหรับเก็บค่า Configuration ที่มีความลับและแตกต่างกันในแต่ละเครื่อง
@@ -329,7 +329,7 @@ flowchart TD
         direction LR
         C["🧠 <b>Controller</b><br>(app/Http/Controllers)<br><i>สมองควบคุมตรรกะงาน</i>"]
         Mo["🗄️ <b>Model</b><br>(app/Models)<br><i>จัดการข้อมูล & กฎ</i>"]
-        V["🎨 <b>View / Pages</b><br>(resources/js/Pages / Blade)<br><i>ส่วนแสดงผลเว็บ</i>"]
+        V["🎨 <b>View / Pages</b><br>(resources/js/Pages - React)<br><i>ส่วนแสดงผลเว็บ</i>"]
     end
 
     %% Database
@@ -413,7 +413,7 @@ flowchart TD
     E["🛡️ <b>4. Middleware Pipeline</b><br>กรองความปลอดภัย (เช็คสิทธิ์ล็อกอิน / กันยิงสคริปต์)"]
     F["🧠 <b>5. Controller Logic</b> (Controllers)<br>สมองประมวลผลตรรกะและเงื่อนไขโปรแกรม"]
     G["🗄️ <b>6. Model & Database</b> (Eloquent)<br>ค้นหา ดึง หรือบันทึกข้อมูลเข้าตารางฐานข้อมูล"]
-    H["🎨 <b>7. View Render</b> (React / Blade Views)<br>ประกอบข้อมูลประกอบโครงสร้างหน้ากากเว็บ"]
+    H["🎨 <b>7. View Render</b> (React / Inertia)<br>ประกอบชุดข้อมูลส่งให้หน้า React แสดงผล"]
     I["✅ <b>HTTP Response</b><br>ส่งโค้ด HTML / JSON กลับสู่บราวเซอร์แสดงหน้าจอ"]
 
     %% Flow connections
@@ -668,49 +668,60 @@ foreach ($posts as $post) {
 
 ---
 
-## 15. Blade — ระบบ Template Engine & Components
+## 15. React Pages & Inertia.js — ระบบ Render หน้ากากเว็บฝั่งหน้าบ้าน
 
-**Blade** คือระบบจัดการหน้าตาเว็บไซต์ (Template Engine) ที่มีความสามารถสูง ช่วยแบ่งสัดส่วนการออกแบบให้เป็น Layouts และสร้าง Component ที่นำกลับมาใช้ซ้ำได้ง่าย
+ในโปรเจกต์ที่ใช้ **React (ผ่าน Inertia.js)** เราจะไม่ได้เขียนหน้าจอแสดงผลด้วย Blade HTML ตรงๆ อีกต่อไป แต่จะแบ่งหน้าที่การทำงานแบบนี้:
 
-```html
-{{-- 1. ไฟล์ Layout หลัก: resources/views/layouts/app.blade.php --}}
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <title>@yield('title', 'แอปพลิเคชันของเรา')</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-gray-100">
-    @include('partials.navbar') {{-- นำเข้า Navbar จากภายนอก --}}
+1. **Inertia.js (ตัวเชื่อมประสาน):** ทำหน้าที่เป็นสะพานส่งข้อมูล JSON จาก Controller หลังบ้าน (Laravel) ไปให้ React หน้าร้านใช้เรนเดอร์โดยตรง ช่วยลดความซับซ้อนของการเขียน API แยก (No API needed)
+2. **React Components (หน้าบ้าน):** เขียนเป็นส่วนประกอบหน้าจอ (UI Components) และบันทึกไฟล์เป็นเพจต่างๆ อยู่ในโฟลเดอร์ `resources/js/Pages/`
 
-    <main class="container mx-auto mt-6">
-        @yield('content') {{-- จุดวางเนื้อหาของหน้าย่อย --}}
-    </main>
-</body>
-</html>
+### ตัวอย่างการส่งข้อมูลจาก Controller ไปยัง React หน้าบ้าน
+
+```php
+// app/Http/Controllers/PostController.php
+namespace App\Http\Controllers;
+
+use App\Models\Post;
+use Inertia\Inertia;
+
+class PostController extends Controller
+{
+    public function index()
+    {
+        // ดึงข้อมูลบทความทั้งหมด
+        $posts = Post::all();
+
+        // ส่งข้อมูลไปยังหน้า React ที่ชื่อ resources/js/Pages/Posts/Index.jsx
+        return Inertia::render('Posts/Index', [
+            'posts' => $posts
+        ]);
+    }
+}
 ```
 
-```html
-{{-- 2. ไฟล์หน้าย่อย: resources/views/posts/index.blade.php --}}
-@extends('layouts.app')
+### ตัวอย่างหน้าจอแสดงผลที่เขียนด้วย React (JSX)
 
-@section('title', 'รายการบทความทั้งหมด')
+```jsx
+// resources/js/Pages/Posts/Index.jsx
+import React from 'react';
+import Layout from '@/Layouts/AppLayout';
 
-@section('content')
-    <h1 class="text-2xl font-bold mb-4">รายการบทความ</h1>
-
-    @foreach($posts as $post)
-        <article class="bg-white p-4 shadow rounded mb-4">
-            <h2 class="text-xl font-semibold">{{ $post->title }}</h2>
-            <p class="text-gray-600 mt-2">{{ $post->body }}</p>
-        </article>
-    @endforeach
-
-    {{-- เรนเดอร์ปุ่มเปลี่ยนหน้า (Pagination) แบบสวยงามโดยอัตโนมัติ --}}
-    <div class="mt-4">
-        {{ $posts->links() }}
-    </div>
-@endsection
+export default function Index({ posts }) {
+    return (
+        <Layout>
+            <h1 className="text-2xl font-bold mb-4">รายการบทความ</h1>
+            
+            <div className="space-y-4">
+                {posts.map((post) => (
+                    <article key={post.id} className="bg-white p-4 shadow rounded">
+                        <h2 className="text-xl font-semibold">{post.title}</h2>
+                        <p className="text-gray-600 mt-2">{post.body}</p>
+                    </article>
+                ))}
+            </div>
+        </Layout>
+    );
+}
 ```
 
 ---
