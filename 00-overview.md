@@ -63,12 +63,13 @@
 <summary>🛠️ <b>ดัชนีขั้นตอนในเวิร์กชอป (02-workshop.md)</b></summary>
 
 * [1. ภาพรวมระบบ & MVP Database Schema](./02-workshop.md#1-ภาพรวมระบบ-โครงสร้างข้อมูลอย่างง่าย-mvp-database-schema)
-* [2. ขั้นตอนปฏิบัติการ Workshop (5 Steps - CRUD ทีละเมนู)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-5-steps---crud-ทีละเมนู)
+* [2. ขั้นตอนปฏิบัติการ Workshop (6 Steps - CRUD ทีละเมนู)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-6-steps---crud-ทีละเมนู)
   * [Step 1: โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น (Database & Seeders)](./02-workshop.md#step-1-โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น-database--seeders)
   * [Step 2: [เมนูที่ 1] ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน (Admin's Rooms CRUD)](./02-workshop.md#step-2-เมนูที่-1-ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน-admins-rooms-crud)
-  * [Step 3: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service)](./02-workshop.md#step-3-บริการหลัก-บริการตรวจเช็คระบบคิวจองทับซ้อน-booking-overlap-service)
-  * [Step 4: [เมนูที่ 2] ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้ (Teacher's Booking Flow)](./02-workshop.md#step-4-เมนูที่-2-ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้-teachers-booking-flow)
-  * [Step 5: [เมนูที่ 3] ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง (Staff's Approvals)](./02-workshop.md#step-5-เมนูที่-3-ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง-staffs-approvals)
+  * [Step 3: [เมนูที่ 2] ระบบจัดการข้อมูลผู้ใช้งานสำหรับแอดมิน (Admin's Users CRUD)](./02-workshop.md#step-3-เมนูที่-2-ระบบจัดการข้อมูลผู้ใช้งานสำหรับแอดมิน-admins-users-crud)
+  * [Step 4: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service)](./02-workshop.md#step-4-บริการหลัก-บริการตรวจเช็คระบบคิวจองทับซ้อน-booking-overlap-service)
+  * [Step 5: [เมนูที่ 3] ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้ (Teacher's Booking Flow)](./02-workshop.md#step-5-เมนูที่-3-ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้-teachers-booking-flow)
+  * [Step 6: [เมนูที่ 4] ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง (Staff's Approvals)](./02-workshop.md#step-6-เมนูที่-4-ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง-staffs-approvals)
 * [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
 
 </details>
