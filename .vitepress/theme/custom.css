@@ -165,6 +165,16 @@
   vertical-align: middle;
 }
 
+/* Invert the white Apple icon in light mode so it remains visible */
+.vp-doc img[src*="apple/default.svg"] {
+  filter: invert(1);
+}
+
+.dark .vp-doc img[src*="apple/default.svg"] {
+  filter: none;
+}
+
+
 /* --- Mermaid Diagram Custom Styling --- */
 /* Match diagrams with the site font */
 .mermaid svg,
