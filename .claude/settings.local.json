@@ -20,7 +20,12 @@
       "Bash(rtk grep *)",
       "WebSearch",
       "WebFetch(domain:developers.googleblog.com)",
-      "WebFetch(domain:agentpedia.codes)"
+      "WebFetch(domain:agentpedia.codes)",
+      "Bash(grep -E '\\\\.\\(md|css|js|ts|vue\\)$')",
+      "Bash(rtk ls *)",
+      "Bash(rtk find *)",
+      "Skill(humanizer-zh)",
+      "Bash(rtk git *)"
     ]
   }
 }
