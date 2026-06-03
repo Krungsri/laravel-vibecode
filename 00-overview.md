@@ -47,16 +47,15 @@
 * [15. React & Inertia.js — ระบบ Render หน้าจอส่วนหน้า](./01-lesson.md#15-react-pages--inertiajs--ระบบ-render-หน้ากากเว็บฝั่งหน้าบ้าน)
 * [16. การตรวจสอบข้อมูลด้วย Form Request Validation](./01-lesson.md#16-การตรวจสอบข้อมูลด้วย-form-request-validation)
 * [17. ระบบยืนยันตัวตนด้วย Starter Kit (Laravel Breeze)](./01-lesson.md#17-ระบบยืนยันตัวตนจาก-starter-kit-laravel-breeze)
-* [18. คัมภีร์คำสั่งด่วน Artisan CLI Cheat Sheet](./01-lesson.md#18-คัมภีร์คำสั่งด่วนยอดนิยมสำหรับนักพัฒนา-artisan-cli-cheat-sheet)
 
 #### 🤖 Part 2: AI-Assisted Development
-* [19. เครื่องมือ AI Developer Agents ประจำปี 2026](./01-lesson.md#19-เครื่องมือ-ai-developer-agents-ประจำปี-2026)
-* [20. หลักการเบื้องต้นของ AI Agent (Tokens, Context, Rate limits)](./01-lesson.md#20-หลักการเบื้องต้นของ-ai-agent-ที่ทุกคนต้องตระหนักรู้)
-* [21. Claude Code](./01-lesson.md#21-claude-code)
-* [22. Antigravity CLI](./01-lesson.md#22-antigravity-cli)
-* [23. OpenCode](./01-lesson.md#23-opencode)
-* [24. Laravel Boost AI — Skills และ MCP](./01-lesson.md#24-laravel-boost-ai-ให้-ai-agent-เข้าใจโครงสร้างโปรเจกต์)
-* [25. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI](./01-lesson.md#25-prompt-patterns-สูตรสำเร็จในการคุยกับ-ai-ให้ได้งานสูงสุด)
+* [18. เครื่องมือ AI Developer Agents ประจำปี 2026](./01-lesson.md#18-เครื่องมือ-ai-developer-agents-ประจำปี-2026)
+* [19. หลักการเบื้องต้นของ AI Agent (Tokens, Context, Rate limits)](./01-lesson.md#19-หลักการเบื้องต้นของ-ai-agent-ที่ทุกคนต้องตระหนักรู้)
+* [20. Claude Code](./01-lesson.md#20-claude-code)
+* [21. Antigravity CLI](./01-lesson.md#21-antigravity-cli)
+* [22. OpenCode](./01-lesson.md#22-opencode)
+* [23. Laravel Boost AI — Skills และ MCP](./01-lesson.md#23-laravel-boost-ai-ให้-ai-agent-เข้าใจโครงสร้างโปรเจกต์)
+* [24. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI](./01-lesson.md#24-prompt-patterns-สูตรสำเร็จในการคุยกับ-ai-ให้ได้งานสูงสุด)
 
 </details>
 
@@ -100,7 +99,7 @@
 * **ติดตั้งเครื่องมือ:** การเซ็ตอัป <img src="https://thesvg.org/icons/ubuntu/default.svg" width="16" height="16" valign="middle"> WSL 2 บน Windows, <img src="https://thesvg.org/icons/php/default.svg" width="26" height="15" valign="middle" style="background:#4F5D95;border-radius:3px;padding:1px"> PHP 8.4, <img src="https://thesvg.org/icons/composer/default.svg" width="16" height="16" valign="middle"> Composer และ Node.js
 * **เริ่มโปรเจกต์:** สร้างแอปพลิเคชันด้วย <img src="https://thesvg.org/icons/laravel/default.svg" width="16" height="16" valign="middle"> Laravel 13 และระบบควบคุมเวอร์ชัน <img src="https://thesvg.org/icons/git/default.svg" width="16" height="16" valign="middle"> Git
 * **โครงสร้างหลัก:** เจาะลึก MVC, Routing, Controller, Middleware และ Eloquent ORM & Relationships
-* **ระบบความปลอดภัย & Auth:** สำรวจการทำงานของ <img src="https://thesvg.org/icons/laravel/default.svg" width="16" height="16" valign="middle"> Laravel Starter Kit (React/Inertia) และชุดคำสั่งจำเป็นจาก Artisan CLI
+* **ระบบความปลอดภัย & Auth:** สำรวจการทำงานของ <img src="https://thesvg.org/icons/laravel/default.svg" width="16" height="16" valign="middle"> Laravel Starter Kit (React/Inertia)
 
 ### 🤖 Part 2: ปฏิวัติการเขียนโค้ดด้วย AI Agent CLI & เวิร์กชอป
 * **AI Fundamentals:** ทำความเข้าใจ Token, Context Window, Rate Limit เพื่อการสั่งงานอย่างมีประสิทธิภาพ

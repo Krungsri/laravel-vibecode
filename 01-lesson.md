@@ -17,7 +17,7 @@
 | | ฐานข้อมูล | Eloquent ORM & Relationships, N+1 Query Problem |
 | | หน้าตาเว็บ | React Components & Inertia.js (View) |
 | | ตรวจสอบข้อมูล | Validation & Error Handling |
-| | ระบบ Auth & คำสั่ง | ส่องไฟล์จาก Starter Kit & คัมภีร์ Artisan CLI |
+| | ระบบ Auth | ส่องไฟล์ระบบยืนยันตัวตนจาก Starter Kit |
 | **Part 2** | AI Agent CLI | Claude Code, Antigravity CLI, OpenCode |
 | | AI Fundamentals | Token, Context Window, Rate Limit |
 | | Laravel + AI | Boost AI, Skills & MCP |
@@ -841,21 +841,6 @@ class StorePostRequest extends FormRequest
 
 ---
 
-## 18. <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> คัมภีร์คำสั่งด่วนยอดนิยมสำหรับนักพัฒนา (Artisan CLI Cheat Sheet)
-
-**Artisan** เป็นคอมมานด์ไลน์อินเตอร์เฟสที่มาพร้อมกับ Laravel เพื่ออำนวยความสะดวกในการพัฒนาโปรเจกต์ และสร้างสแคฟโฟลด์ต่างๆ ได้อย่างรวดเร็ว
-
-### 🏆 6 สุดยอดคำสั่งที่จำเป็นที่สุดในการพัฒนาโปรเจกต์
-
-| หมวดหมู่ | คำสั่ง | อธิบายการทำงาน | ตัวอย่างการใช้งาน |
-| :--- | :--- | :--- | :--- |
-| **เซิร์ฟเวอร์** | `php artisan serve` | รันเซิร์ฟเวอร์จำลองเพื่อเข้าชมผ่านเบราว์เซอร์ | `http://127.0.0.1:8000` |
-| **ฐานข้อมูล** | `php artisan migrate` | รันตารางฐานข้อมูลที่สร้างขึ้นใหม่ให้เข้าไปอยู่ใน Database | รันเพื่อสร้างตาราง `users` จาก Starter Kit |
-| **การทำความสะอาด** | `php artisan migrate:fresh --seed` | ล้างตารางทั้งหมด สร้างใหม่ และรันชุดข้อมูลจำลอง (Seeder) | ใช้เพื่อรีเซ็ตโครงสร้างฐานข้อมูลเริ่มต้น |
-| **การสร้างไฟล์** | `php artisan make:model <Name> -mc` | สร้าง Model พร้อมพ่วง Migration และ Controller ในคำสั่งเดียว | `php artisan make:model Room -mc` |
-| **ความสัมพันธ์** | `php artisan route:list` | แสดงตารางเส้นทาง URL ทั้งหมดของโปรเจกต์พร้อม Middleware | ใช้เช็กว่า URL ถูกชี้ไปหา Controller ตัวไหน |
-| **การทดสอบ** | `php artisan tinker` | เปิดหน้าต่าง REPL (Interactive Shell) เพื่อเขียนโค้ด PHP ทดลองกับโปรเจกต์ | ดึงข้อมูลลองเล่น: `App\Models\User::first()` |
-
 ---
 
 # Part 2: AI-Assisted Development
@@ -864,7 +849,7 @@ class StorePostRequest extends FormRequest
 
 ---
 
-## 19. เครื่องมือ AI Developer Agents ประจำปี 2026
+## 18. เครื่องมือ AI Developer Agents ประจำปี 2026
 
 **AI Developer Agents** ในปัจจุบันทำได้มากกว่าแค่ตอบคำถาม สามารถอ่าน Codebase วางแผน สร้างและแก้ไขไฟล์ รวมถึงรันคำสั่งใน Terminal ได้เองโดยอัตโนมัติ
 
@@ -876,7 +861,7 @@ class StorePostRequest extends FormRequest
 
 ---
 
-## 20. หลักการเบื้องต้นของ AI Agent ที่ทุกคนต้องตระหนักรู้
+## 19. หลักการเบื้องต้นของ AI Agent ที่ทุกคนต้องตระหนักรู้
 
 เพื่อให้ได้ผลลัพธ์ที่ดีและประหยัดงบการใช้งาน ควรเข้าใจค่ากำหนดหลักเหล่านี้:
 
@@ -915,7 +900,7 @@ graph TD
 
 ---
 
-## 21. <img src="https://thesvg.org/icons/anthropic/default.svg" width="20" height="20" valign="middle"> Claude Code
+## 20. <img src="https://thesvg.org/icons/anthropic/default.svg" width="20" height="20" valign="middle"> Claude Code
 
 **Claude Code** จาก Anthropic รันบน Terminal โดยตรง ถนัดในการวิเคราะห์ Logic ซับซ้อนและตรวจสอบคุณภาพโค้ด
 
@@ -937,7 +922,7 @@ claude
 
 ---
 
-## 22. <img src="https://thesvg.org/icons/google-antigravity/default.svg" width="20" height="20" valign="middle"> Antigravity CLI
+## 21. <img src="https://thesvg.org/icons/google-antigravity/default.svg" width="20" height="20" valign="middle"> Antigravity CLI
 
 **Antigravity CLI** พัฒนาโดย Google ใช้ภาษา Go ทำให้รันได้เร็ว ฟีเจอร์หลักคือ **Async Subagents** ที่รันงานหลายอย่างพร้อมกันใน Background ได้
 
@@ -962,7 +947,7 @@ agy
 
 ---
 
-## 23. <img src="https://thesvg.org/icons/opencode/default.svg" width="20" height="20" valign="middle"> OpenCode
+## 22. <img src="https://thesvg.org/icons/opencode/default.svg" width="20" height="20" valign="middle"> OpenCode
 
 **OpenCode** ให้ความยืดหยุ่นในการเลือกโมเดล สามารถสลับมาใช้ Local Model หรือ API ส่วนตัวได้ เหมาะกับองค์กรที่ต้องการควบคุมข้อมูล
 
@@ -977,7 +962,7 @@ opencode
 
 ---
 
-## 24. <img src="https://thesvg.org/icons/laravel/default.svg" width="24" height="24" valign="middle"> Laravel Boost AI: ให้ AI Agent เข้าใจโครงสร้างโปรเจกต์
+## 23. <img src="https://thesvg.org/icons/laravel/default.svg" width="24" height="24" valign="middle"> Laravel Boost AI: ให้ AI Agent เข้าใจโครงสร้างโปรเจกต์
 
 ความท้าทายที่ใหญ่ที่สุดของการใช้ AI Agent ในโปรเจกต์ขนาดใหญ่คือ **"การขาดบริบท (Context Gap)"** โมเดลส่วนใหญ่มักจะไม่ทราบโครงสร้างตารางฐานข้อมูลที่แท้จริง ไม่รู้เส้นทาง URLs หรือมักจะแนะนำฟังก์ชันที่เก่าล้าสมัย (Hallucination) 
 
@@ -1075,7 +1060,7 @@ php artisan boost:install
 
 ---
 
-## 25. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI ให้ได้งานสูงสุด
+## 24. Prompt Patterns: สูตรสำเร็จในการคุยกับ AI ให้ได้งานสูงสุด
 
 > [!TIP]
 > **สูตรผสมที่ดีที่สุด:**  
