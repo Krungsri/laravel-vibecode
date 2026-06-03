@@ -17,8 +17,8 @@
 | 📌 | **[00-overview.md](./00-overview.md)** | ภาพรวมโครงการอบรม, แผนการเรียนรู้ และโครงสร้างไฟล์ทั้งหมด *(หน้าปัจจุบัน)* |
 | 💻 | **[system-requirements.md](./system-requirements.md)** | **ความต้องการของระบบ:** สเปกฮาร์ดแวร์, ระบบปฏิบัติการ, สแต็กซอฟต์แวร์, และเครื่องมือ AI ที่จำเป็นต้องเตรียมตัวก่อนเข้าอบรม |
 | <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](./01-lesson.md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
-| <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (7 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
-| 📧 | **[03-workshop-phase2.md](./03-workshop-phase2.md)** | **Workshop Phase 2:** เสริมระบบด้วย **In-App Notification** และ **Mail Alert** ผ่าน Mailpit รวม 5 ขั้นตอน (Steps 8–12) |
+| <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (8 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
+| 📧 | **[03-workshop-phase2.md](./03-workshop-phase2.md)** | **Workshop Phase 2:** เสริมระบบด้วย **In-App Notification** และ **Mail Alert** ผ่าน Mailpit รวม 5 ขั้นตอน (Steps 9–13) |
 
 ---
 
@@ -62,30 +62,32 @@
 <details>
 <summary>🛠️ <b>ดัชนีขั้นตอนในเวิร์กชอป (02-workshop.md)</b></summary>
 
-* [1. ภาพรวมระบบ & MVP Database Schema](./02-workshop.md#1-ภาพรวมระบบ-โครงสร้างข้อมูลอย่างง่าย-mvp-database-schema)
-* [2. ขั้นตอนปฏิบัติการ Workshop (6 Steps - CRUD ทีละเมนู)](./02-workshop.md#2-ขั้นตอนปฏิบัติการ-workshop-6-steps---crud-ทีละเมนู)
-  * [Step 1: โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น (Database & Seeders)](./02-workshop.md#step-1-โครงสร้างฐานข้อมูลและบัญชีทดสอบเริ่มต้น-database--seeders)
-  * [Step 2: [เมนูที่ 1] ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน (Admin's Rooms CRUD)](./02-workshop.md#step-2-เมนูที่-1-ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน-admins-rooms-crud)
-  * [Step 3: [เมนูที่ 2] ระบบจัดการข้อมูลผู้ใช้งานสำหรับแอดมิน (Admin's Users CRUD)](./02-workshop.md#step-3-เมนูที่-2-ระบบจัดการข้อมูลผู้ใช้งานสำหรับแอดมิน-admins-users-crud)
-  * [Step 4: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service)](./02-workshop.md#step-4-บริการหลัก-บริการตรวจเช็คระบบคิวจองทับซ้อน-booking-overlap-service)
-  * [Step 5: [เมนูที่ 3] ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้ (Teacher's Booking Flow)](./02-workshop.md#step-5-เมนูที่-3-ระบบค้นหาห้องและยื่นใบจองสำหรับผู้ใช้-teachers-booking-flow)
-  * [Step 6: [เมนูที่ 4] ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง (Staff's Approvals)](./02-workshop.md#step-6-เมนูที่-4-ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง-staffs-approvals)
-* [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#3-ตารางตรวจสอบผลงานความสำเร็จ-mvp-verification-checklist)
+* [1. ภาพรวมระบบ & MVP Database Schema](./02-workshop.md#schema)
+* [2. ขั้นตอนปฏิบัติการ Workshop (8 Steps - CRUD ทีละเมนู)](./02-workshop.md#steps)
+  * [Step 1: โครงสร้างฐานข้อมูล, Models และ Seeders (Database & Seeders)](./02-workshop.md#step-1)
+  * [Step 2: ระบบสิทธิ์การเข้าถึง (Authorization — Gates & Middleware)](./02-workshop.md#step-2)
+  * [Step 3: [เมนูที่ 1] ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน (Admin's Rooms CRUD)](./02-workshop.md#step-3)
+  * [Step 4: [เมนูที่ 2] ระบบจัดการข้อมูลผู้ใช้งานสำหรับแอดมิน (Admin's Users CRUD)](./02-workshop.md#step-4)
+  * [Step 5: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service)](./02-workshop.md#step-5)
+  * [Step 6: [เมนูที่ 3ก] ค้นหาและดูรายละเอียดห้องประชุม (Room Browsing)](./02-workshop.md#step-6)
+  * [Step 7: [เมนูที่ 3ข] ยื่นจองและดูประวัติการจอง (Booking CRUD)](./02-workshop.md#step-7)
+  * [Step 8: [เมนูที่ 4] ระบบตรวจสอบและพิจารณาอนุมัติคิวจอง (Staff's Approvals)](./02-workshop.md#step-8)
+* [3. ตารางตรวจสอบผลงานความสำเร็จ (MVP Verification Checklist)](./02-workshop.md#checklist)
 
 </details>
 
 <details>
 <summary>📧 <b>ดัชนีขั้นตอนในเวิร์กชอป Phase 2 (03-workshop-phase2.md)</b></summary>
 
-* [ข้อกำหนดเบื้องต้น (Prerequisites)](./03-workshop-phase2.md#-สิ่งที่ต้องเตรียมก่อนเริ่ม-prerequisites)
-* [1. Mailpit — Email Testing บน WSL](./03-workshop-phase2.md#1-mailpit--email-testing-บน-wsl)
-* [2. ขั้นตอนปฏิบัติการ Phase 2 (5 Steps)](./03-workshop-phase2.md#2-ขั้นตอนปฏิบัติการ-phase-2-5-steps)
-  * [Step 8: ตั้งค่า Mailpit และตาราง Notifications (P-08)](./03-workshop-phase2.md#step-8-ตั้งค่า-mailpit-และตาราง-notifications-p-08)
-  * [Step 9: สร้าง Notification สำหรับแจ้งผลการพิจารณา (P-09)](./03-workshop-phase2.md#step-9-สร้าง-notification-สำหรับแจ้งผลการพิจารณา-p-09)
-  * [Step 10: สร้าง Mailable สำหรับยืนยันการจอง (P-10)](./03-workshop-phase2.md#step-10-สร้าง-mailable-สำหรับยืนยันการจอง-p-10)
-  * [Step 11: เชื่อม Notification และ Mail เข้า Controllers (P-11)](./03-workshop-phase2.md#step-11-เชื่อม-notification-และ-mail-เข้า-controllers-p-11)
-  * [Step 12: หน้าจอกระดิ่งแจ้งเตือน React (P-12)](./03-workshop-phase2.md#step-12-หน้าจอกระดิ่งแจ้งเตือน-react-p-12)
-* [3. ตารางตรวจสอบผลงาน Phase 2](./03-workshop-phase2.md#3-ตารางตรวจสอบผลงาน-phase-2)
+* [ข้อกำหนดเบื้องต้น (Prerequisites)](./03-workshop-phase2.md#prerequisites)
+* [1. Mailpit — Email Testing บน WSL](./03-workshop-phase2.md#mailpit)
+* [2. ขั้นตอนปฏิบัติการ Phase 2 (5 Steps)](./03-workshop-phase2.md#steps-p2)
+  * [Step 9: ตั้งค่า Mailpit และตาราง Notifications (P-09)](./03-workshop-phase2.md#step-9)
+  * [Step 10: สร้าง Notification สำหรับแจ้งผลการพิจารณา (P-10)](./03-workshop-phase2.md#step-10)
+  * [Step 11: สร้าง Mailable สำหรับยืนยันการจอง (P-11)](./03-workshop-phase2.md#step-11)
+  * [Step 12: เชื่อม Notification และ Mail เข้า Controllers (P-12)](./03-workshop-phase2.md#step-12)
+  * [Step 13: หน้าจอกระดิ่งแจ้งเตือน React (P-13)](./03-workshop-phase2.md#step-13)
+* [3. ตารางตรวจสอบผลงาน Phase 2](./03-workshop-phase2.md#checklist-p2)
 
 </details>
 

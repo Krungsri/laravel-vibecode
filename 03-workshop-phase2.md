@@ -6,7 +6,7 @@
 
 ---
 
-## 🔧 สิ่งที่ต้องเตรียมก่อนเริ่ม (Prerequisites)
+## 🔧 สิ่งที่ต้องเตรียมก่อนเริ่ม (Prerequisites) {#prerequisites}
 
 > Phase 2 ต่อจาก Phase 1 โปรดทำให้ครบก่อน:
 > - **ระบบ MVP ทำงานสมบูรณ์:** ผ่าน Verification Checklist ใน [02-workshop.md](./02-workshop.md) ครบทุกข้อ
@@ -14,7 +14,7 @@
 
 ---
 
-## 1. Mailpit — Email Testing บน WSL
+## 1. Mailpit — Email Testing บน WSL {#mailpit}
 
 **Mailpit** คือ Email Testing Tool น้ำหนักเบาที่ทำหน้าที่เป็น **SMTP Server จำลอง** โดยดักจับอีเมลที่แอปส่งออกมาทั้งหมดไว้แสดงในหน้า Web UI แทนที่จะส่งออกอินเทอร์เน็ตจริง เหมาะมากสำหรับการพัฒนาและทดสอบระบบอีเมลบน WSL
 
@@ -89,13 +89,13 @@ Mail::raw('ทดสอบส่งอีเมลจาก Laravel', fn($m) => 
 
 ---
 
-## 2. ขั้นตอนปฏิบัติการ Phase 2 (5 Steps)
+## 2. ขั้นตอนปฏิบัติการ Phase 2 (5 Steps) {#steps-p2}
 
 ---
 
 ### 📬 Phase 2: ระบบแจ้งเตือนและอีเมล
 
-#### Step 8: ตั้งค่า Mailpit และตาราง Notifications (P-08)
+#### Step 9: ตั้งค่า Mailpit และตาราง Notifications (P-09) {#step-9}
 * **เป้าหมาย:** ยืนยันว่า Laravel ส่งอีเมลผ่าน Mailpit ได้ และสร้างตาราง `notifications` สำหรับเก็บ In-App Notification
 * **⚡ Short Prompt:**
   ```text
@@ -108,7 +108,7 @@ Mail::raw('ทดสอบส่งอีเมลจาก Laravel', fn($m) => 
 
 ---
 
-#### Step 9: สร้าง Notification สำหรับแจ้งผลการพิจารณา (P-09)
+#### Step 10: สร้าง Notification สำหรับแจ้งผลการพิจารณา (P-10) {#step-10}
 * **เป้าหมาย:** สร้าง `BookingStatusChanged` Notification ที่ส่งพร้อมกัน 2 ช่องทาง ได้แก่ Database (In-App) และ Mail (อีเมล) เมื่อ Staff กดอนุมัติหรือปฏิเสธคำขอจอง
 * **📊 แผนภาพการทำงาน:**
 
@@ -137,17 +137,17 @@ flowchart TD
 
 ---
 
-#### Step 10: สร้าง Mailable สำหรับยืนยันการจอง (P-10)
+#### Step 11: สร้าง Mailable สำหรับยืนยันการจอง (P-11) {#step-11}
 * **เป้าหมาย:** สร้าง `BookingConfirmation` Mailable สำหรับอีเมลยืนยันที่ส่งให้ครูทันทีเมื่อยื่นคำขอจองสำเร็จ (สถานะ pending)
 * **⚡ Short Prompt:**
   ```text
   สร้าง app/Mail/BookingConfirmation.php และ Blade view resources/views/emails/booking-confirmation.blade.php สำหรับส่งอีเมลยืนยันการยื่นจองห้องให้ครู ระบุชื่อห้อง วันเวลา และสถานะรออนุมัติ
   ```
-* **🔍 วิธีตรวจสอบ:** หลังทำ Step 11 เสร็จ ให้ลองยื่นจองห้องด้วยบัญชี Teacher แล้วเช็ค `http://localhost:8025`
+* **🔍 วิธีตรวจสอบ:** หลังทำ Step 12 เสร็จ ให้ลองยื่นจองห้องด้วยบัญชี Teacher แล้วเช็ค `http://localhost:8025`
 
 ---
 
-#### Step 11: เชื่อม Notification และ Mail เข้า Controllers (P-11)
+#### Step 12: เชื่อม Notification และ Mail เข้า Controllers (P-12) {#step-12}
 * **เป้าหมาย:** ผูก Notification + Mailable เข้ากับ Controllers ที่มีอยู่แล้ว ได้แก่ `BookingController@store` (ส่งอีเมลยืนยัน) และ `Staff\BookingApprovalController` (ส่ง Notification เมื่ออนุมัติ/ปฏิเสธ)
 
 > [!NOTE]
@@ -160,7 +160,7 @@ flowchart TD
 
 ---
 
-#### Step 12: หน้าจอกระดิ่งแจ้งเตือน React (P-12)
+#### Step 13: หน้าจอกระดิ่งแจ้งเตือน React (P-13) {#step-13}
 * **เป้าหมาย:** เพิ่ม Notification Bell ในแถบนำทาง แสดงจำนวนการแจ้งเตือนที่ยังไม่ได้อ่าน และสร้าง endpoint สำหรับกดอ่านแล้ว (mark as read)
 * **⚡ Short Prompt:**
   ```text
@@ -169,7 +169,7 @@ flowchart TD
 
 ---
 
-## 3. ตารางตรวจสอบผลงาน Phase 2
+## 3. ตารางตรวจสอบผลงาน Phase 2 {#checklist-p2}
 
 ### 💡 เปิด 3 หน้าต่างพร้อมกัน
 
@@ -191,7 +191,7 @@ flowchart TD
 
 ---
 
-## 💾 บันทึก Checkpoint Phase 2 เข้าสู่ระบบ Git
+## 💾 บันทึก Checkpoint Phase 2 เข้าสู่ระบบ Git {#checkpoint-p2}
 
 ```bash
 git add .
