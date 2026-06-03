@@ -670,12 +670,44 @@ foreach ($posts as $post) {
 
 ## 15. React Pages & Inertia.js — ระบบ Render หน้ากากเว็บฝั่งหน้าบ้าน
 
-ในโปรเจกต์ที่ใช้ **React (ผ่าน Inertia.js)** เราจะไม่ได้เขียนหน้าจอแสดงผลด้วย Blade HTML ตรงๆ อีกต่อไป แต่จะแบ่งหน้าที่การทำงานแบบนี้:
+ในโปรเจกต์ที่ใช้ **React Starter Kits** (เช่น Laravel Breeze React) เราจะไม่ต้องใช้ระบบ Template ของ Blade ในการจัดโครงสร้างหน้าเว็บหลักอีกต่อไป แต่จะหันมาพัฒนาส่วนติดต่อผู้ใช้งานด้วย **React (Frontend)** โดยมี **Inertia.js** ทำหน้าที่เป็นตัวเชื่อมประสานระบบหลังบ้านและหน้าบ้านเข้าด้วยกัน
 
-1. **Inertia.js (ตัวเชื่อมประสาน):** ทำหน้าที่เป็นสะพานส่งข้อมูล JSON จาก Controller หลังบ้าน (Laravel) ไปให้ React หน้าร้านใช้เรนเดอร์โดยตรง ช่วยลดความซับซ้อนของการเขียน API แยก (No API needed)
-2. **React Components (หน้าบ้าน):** เขียนเป็นส่วนประกอบหน้าจอ (UI Components) และบันทึกไฟล์เป็นเพจต่างๆ อยู่ในโฟลเดอร์ `resources/js/Pages/`
+---
 
-### ตัวอย่างการส่งข้อมูลจาก Controller ไปยัง React หน้าบ้าน
+### 💡 Inertia.js คืออะไร?
+
+**Inertia.js** ไม่ใช่ภาษาหรือเฟรมเวิร์กใหม่ แต่เป็น **"สะพานเชื่อมโยง (Glue)"** ที่ทำหน้าที่เชื่อมต่อหน้าบ้านที่เป็น Single Page Application (SPA) เช่น React หรือ Vue เข้ากับระบบควบคุมหลังบ้าน (Routing & Controller) ของ Laravel 
+
+โดยปกติหากเขียนแอปพลิเคชันแบบ SPA ด้วย React เรามักจะต้องแยกโปรเจกต์หน้าบ้าน-หลังบ้านออกจากกัน เขียนระบบ API (เช่น REST API หรือ GraphQL) คอยคุยแลกเปลี่ยนข้อมูล จัดระบบ Authentication ด้วย Tokens (JWT) และเขียนตัวจัดการเส้นทาง (React Router) เพิ่มเติมด้านหน้า ซึ่งมีความซับซ้อนสูงมาก
+
+**Inertia.js ช่วยแก้ปัญหานี้โดยการอนุญาตให้คุณสร้างแอป React ได้โดยไม่ต้องเขียน API แยก** คุณยังคงใช้เส้นทางเว็บ (web.php) และส่งค่าผ่าน Controller ของ Laravel เหมือนการพัฒนาเว็บทั่วไป แต่ผลลัพธ์หน้าจอที่ผู้ใช้งานเห็นจะลื่นไหลรวดเร็วเทียบเท่า SPA จริงๆ!
+
+---
+
+### 🔄 หลักการทำงานแบบไม่รีโหลดหน้าจอ (Single-Page Application Lifecycle)
+
+เมื่อเกิดกิจกรรมเปลี่ยนหน้าต่างบนบราวเซอร์ การแลกเปลี่ยนข้อมูลจะทำงานดังนี้:
+
+1. **ดักจับคำขอ (Link Interception):** ตัวไลบรารีของ Inertia บนเบราว์เซอร์จะดักจับเหตุการณ์การคลิกลิงก์บนเว็บ ป้องกันไม่ให้เบราว์เซอร์รีโหลดหน้าจอใหม่ทั้งหมดแบบดั้งเดิม (Prevent Page Reload)
+2. **ยิงคำขอเบื้องหลัง (AJAX Request):** ยิงคำขอไปหา Laravel Controller แบบเบื้องหลังพร้อมแนบ Header พิเศษ `X-Inertia: true`
+3. **การตอบกลับแบบ JSON (Inertia Response):** ฝั่ง Laravel Controller จะตรวจจับ Header นั้น และแทนที่จะส่งโค้ดโครงสร้าง HTML ทั้งหน้ากลับไป มันจะเลือกแพ็กเฉพาะ **ชื่อเพจ React** พร้อมส่งข้อมูล **Data (Props)** ส่งกลับไปในรูปแบบ JSON แทน
+4. **การอัปเดตหน้าจอ (DOM Swapping):** ฝั่ง Inertia หน้าร้านจะรับข้อมูล JSON ไปโหลดไฟล์ Page Component ของ React แล้วเปลี่ยนสับเปลี่ยนองค์ประกอบของเว็บตรงจุดที่ต้องการโดยอัตโนมัติ ทำให้เว็บทำงานทันใจ ไม่เกิดรอยสะดุดจอดำหรือหน้าต่างกระพริบ
+
+```mermaid
+flowchart LR
+    A["🖱️ <b>1. คลิกเปลี่ยนหน้า</b><br>User กดลิงก์ 'จองห้อง'"] --> B["⚡ <b>2. ดักการเปลี่ยนหน้า</b><br>Inertia ดักลิงก์<br>และส่งคำขอหลังบ้าน"]
+    B --> C["📡 <b>3. AJAX Request</b><br>ส่ง Request พร้อมส่ง<br><code>X-Inertia: true</code>"]
+    C --> D["🧠 <b>4. Laravel Controller</b><br>ดึงข้อมูลแล้วเรียกสั่ง<br><code>Inertia::render(...)</code>"]
+    D --> E["📄 <b>5. JSON Payload</b><br>ส่ง Component Name<br>& Data (Props) กลับมา"]
+    E --> F["⚛️ <b>6. สลับ Component</b><br>Inertia สลับหน้าจอ React<br>โดยไม่รีโหลดทั้งหน้า"]
+```
+
+---
+
+### 💻 ตัวอย่างโค้ดเปรียบเทียบการทำงาน
+
+#### 1. ฝั่งหลังบ้าน (Controller) — ส่งข้อมูลผ่าน Inertia
+เราจะเรียกใช้คลาส `Inertia` แทนตัวควบคุมหน้ากาก View เดิม เพื่อระบุตำแหน่ง Component ของ React และแนบข้อมูลเพื่อส่งผ่านเป็น Props ไปยังหน้าบ้าน
 
 ```php
 // app/Http/Controllers/PostController.php
@@ -688,10 +720,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        // ดึงข้อมูลบทความทั้งหมด
+        // ดึงข้อมูลทั้งหมดจากตารางบทความ
         $posts = Post::all();
 
-        // ส่งข้อมูลไปยังหน้า React ที่ชื่อ resources/js/Pages/Posts/Index.jsx
+        // เรนเดอร์หน้า React ที่อยู่ใน resources/js/Pages/Posts/Index.jsx
+        // พร้อมแนบส่งตัวแปร $posts ไปใช้เป็นตัวแปรหน้าบ้าน
         return Inertia::render('Posts/Index', [
             'posts' => $posts
         ]);
@@ -699,13 +732,15 @@ class PostController extends Controller
 }
 ```
 
-### ตัวอย่างหน้าจอแสดงผลที่เขียนด้วย React (JSX)
+#### 2. ฝั่งหน้าบ้าน (React Page) — รับข้อมูลมาแสดงผล
+ที่โฟลเดอร์ `resources/js/Pages/` เราจะสร้างหน้าจอเขียนด้วย React (JSX) และดึงข้อมูลที่ Controller ส่งมาให้ผ่านพารามิเตอร์ `Props` มาใช้แสดงผลได้ทันที
 
 ```jsx
 // resources/js/Pages/Posts/Index.jsx
 import React from 'react';
 import Layout from '@/Layouts/AppLayout';
 
+// รับตัวแปร posts จาก Laravel Controller เข้ามาเป็น Props ทันที
 export default function Index({ posts }) {
     return (
         <Layout>
@@ -713,8 +748,8 @@ export default function Index({ posts }) {
             
             <div className="space-y-4">
                 {posts.map((post) => (
-                    <article key={post.id} className="bg-white p-4 shadow rounded">
-                        <h2 className="text-xl font-semibold">{post.title}</h2>
+                    <article key={post.id} className="bg-white p-4 shadow rounded border">
+                        <h2 className="text-xl font-semibold text-blue-900">{post.title}</h2>
                         <p className="text-gray-600 mt-2">{post.body}</p>
                     </article>
                 ))}
