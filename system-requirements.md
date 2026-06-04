@@ -41,24 +41,24 @@
 ```mermaid
 flowchart TD
     OS["💻 เลือกระบบปฏิบัติการของคุณ"]
-    OS --> Win["Windows (WSL 2 + Ubuntu)"]
+    OS --> Win["Windows<br>(WSL 2 + Ubuntu)"]
     OS --> Mac["macOS (Homebrew)"]
-    OS --> Lin["Linux (Native Package Manager)"]
+    OS --> Lin["Linux<br>(Native Package Manager)"]
 
     Win & Mac & Lin --> DevStack["สแต็กการพัฒนาหลัก"]
     
     subgraph DevStack ["สแต็กพัฒนาเว็บ (Development Stack)"]
         PHP["PHP 8.4"]
-        Comp["Composer (PHP Package Manager)"]
+        Comp["Composer<br>(PHP Package Manager)"]
         Node["Node.js 20 LTS"]
-        Git["Git Version Control"]
+        Git["Git<br>(Version Control)"]
     end
 
     DevStack --> IDE["เอดิเตอร์และส่วนเสริม"]
     
     subgraph IDE ["โปรแกรมเขียนโค้ด (IDE)"]
-        VSCode["VS Code (Visual Studio Code)"]
-        Exts["Laravel/React Extensions"]
+        VSCode["VS Code<br>(Visual Studio Code)"]
+        Exts["Laravel/React<br>Extensions"]
     end
 ```
 

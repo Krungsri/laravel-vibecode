@@ -171,12 +171,14 @@
   vertical-align: middle;
 }
 
-/* Invert the white Apple icon in light mode so it remains visible */
-.vp-doc img[src*="apple/default.svg"] {
+/* Invert the white Apple and Anthropic icons in light mode so they remain visible */
+.vp-doc img[src*="apple/default.svg"],
+.vp-doc img[src*="anthropic/default.svg"] {
   filter: invert(1);
 }
 
-.dark .vp-doc img[src*="apple/default.svg"] {
+.dark .vp-doc img[src*="apple/default.svg"],
+.dark .vp-doc img[src*="anthropic/default.svg"] {
   filter: none;
 }
 

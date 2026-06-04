@@ -23,9 +23,6 @@ flowchart LR
     A["🖥️ Laravel App<br>ส่งอีเมลผ่าน SMTP<br>port 1025"] --> B["📬 Mailpit<br>SMTP Server จำลอง<br>(WSL localhost)"]
     B --> C["🌐 Web UI<br>http://localhost:8025<br>ดูอีเมลในเบราว์เซอร์"]
 
-    style A fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-    style C fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
 ### 📦 ติดตั้ง Mailpit บน WSL
@@ -121,13 +118,6 @@ flowchart TD
     D --> F["🔔 กระดิ่งในแอปของครู"]
     E --> G["📬 Mailpit Inbox<br>localhost:8025"]
 
-    style A fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
-    style C fill:#0284c7,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style D fill:#0d9488,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
-    style E fill:#db2777,stroke:#f472b6,stroke-width:2px,color:#ffffff,font-weight:bold
-    style F fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
-    style G fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
 * **⚡ Short Prompt:**

@@ -309,21 +309,6 @@ flowchart TD
     C --> V
     V --> U2
 
-    %% Styling
-    style Gate fill:#1e1b4b,stroke:#4338ca,stroke-width:2px,color:#c7d2fe
-    style MVC fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#93c5fd
-
-    style U fill:#374151,stroke:#6b7280,stroke-width:2px,color:#ffffff,font-weight:bold
-    style U2 fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
-
-    style R fill:#db2777,stroke:#f472b6,stroke-width:2px,color:#ffffff,font-weight:bold
-    style M fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-
-    style C fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
-    style Mo fill:#0d9488,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
-    style V fill:#e11d48,stroke:#fb7185,stroke-width:2px,color:#ffffff,font-weight:bold
-
-    style DB fill:#0284c7,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
 ---
@@ -387,17 +372,6 @@ flowchart TD
     F <-->|"6. จัดการข้อมูล (สองทาง)"| G
     F -->|"7. ส่งต่อเรนเดอร์"| H
     H -->|"8. แพ็คของตอบกลับ"| I
-
-    %% Premium Custom Styling
-    style A fill:#374151,stroke:#9ca3af,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#0284c7,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style C fill:#d97706,stroke:#fbbf24,stroke-width:2px,color:#ffffff,font-weight:bold
-    style D fill:#db2777,stroke:#f472b6,stroke-width:2px,color:#ffffff,font-weight:bold
-    style E fill:#4f46e5,stroke:#818cf8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style F fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
-    style G fill:#0d9488,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
-    style H fill:#e11d48,stroke:#fb7185,stroke-width:2px,color:#ffffff,font-weight:bold
-    style I fill:#059669,stroke:#34d399,stroke-width:2px,color:#ffffff,font-weight:bold
 ```
 
 ---
@@ -491,22 +465,6 @@ flowchart TD
         M4 -- "ผ่าน ✅" --> Ctrl["🧠 Controller Method<br><i>(ประมวลลอจิกและส่งผลลัพธ์)</i>"]
         M4 -- "ไม่ได้ล็อกอิน ❌" --> ErrAuth["🚫 Redirect to Login / 403 Forbidden"]
     end
-
-    %% Styles
-    style pipeline fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#93c5fd
-    
-    style Req fill:#374151,stroke:#9ca3af,stroke-width:2px,color:#ffffff,font-weight:bold
-    style Ctrl fill:#7c3aed,stroke:#a78bfa,stroke-width:2px,color:#ffffff,font-weight:bold
-    
-    style M1 fill:#1e2937,stroke:#6b7280,stroke-width:1px,color:#f3f4f6
-    style M2 fill:#1e2937,stroke:#6b7280,stroke-width:1px,color:#f3f4f6
-    style M3 fill:#1e2937,stroke:#6b7280,stroke-width:1px,color:#f3f4f6
-    style M4 fill:#1e2937,stroke:#6b7280,stroke-width:1px,color:#f3f4f6
-    
-    style Err503 fill:#991b1b,stroke:#f43f5e,stroke-width:1px,color:#ffffff
-    style ErrSession fill:#991b1b,stroke:#f43f5e,stroke-width:1px,color:#ffffff
-    style ErrCSRF fill:#991b1b,stroke:#f43f5e,stroke-width:1px,color:#ffffff
-    style ErrAuth fill:#991b1b,stroke:#f43f5e,stroke-width:1px,color:#ffffff
 ```
 
 ```php
@@ -585,14 +543,6 @@ flowchart TD
         G4 --> G5["⚡ จับคู่ข้อมูลในเมมโมรีทันที! (คิวรีทั้งหมด = 2 ครั้ง เสมอ)"]
     end
 
-    style bad fill:#1e1b1b,stroke:#f43f5e,stroke-width:2px,color:#fecdd3
-    style good fill:#111c17,stroke:#10b981,stroke-width:2px,color:#a7f3d0
-    
-    style B1 fill:#372323,stroke:#fda4af,color:#ffffff
-    style B5 fill:#991b1b,stroke:#f43f5e,color:#ffffff,font-weight:bold
-    
-    style G1 fill:#142d20,stroke:#6ee7b7,color:#ffffff
-    style G5 fill:#065f46,stroke:#10b981,color:#ffffff,font-weight:bold
 ```
 
 ### โค้ดที่ก่อให้เกิดปัญหา (N+1 Query)
@@ -842,18 +792,6 @@ graph TD
     %% Pillar 3
     Root --> P3["⏳ 3. Rate Limits<br>(ข้อจำกัดความถี่การส่งสั่งการ)"]
     P3 --> P3_1["• จำกัดจำนวนการเรียกครั้งต่อนาที (RPM/TPM)<br>• หากสั่งรันงานถี่และมีปริมาณมากเกินไปจะเจอ <b>Error 429</b><br>• ต้องเว้นระยะหรือลดขนาดสคริปต์ที่ส่ง"]
-
-    %% Premium Style Definition
-    style Root fill:#3b82f6,stroke:#93c5fd,stroke-width:2px,color:#ffffff,font-weight:bold
-    
-    style P1 fill:#f43f5e,stroke:#fecdd3,stroke-width:2px,color:#ffffff,font-weight:bold
-    style P1_1 fill:#1f2937,stroke:#374151,stroke-width:1px,color:#e5e7eb
-    
-    style P2 fill:#f59e0b,stroke:#fde68a,stroke-width:2px,color:#ffffff,font-weight:bold
-    style P2_1 fill:#1f2937,stroke:#374151,stroke-width:1px,color:#e5e7eb
-    
-    style P3 fill:#065f46,stroke:#047857,stroke-width:2px,color:#ffffff,font-weight:bold
-    style P3_1 fill:#1f2937,stroke:#374151,stroke-width:1px,color:#e5e7eb
 ```
 
 
