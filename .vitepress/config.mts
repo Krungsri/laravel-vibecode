@@ -7,6 +7,9 @@ export default withMermaid(
     description: 'Bootcamp & Workshop — การประยุกต์ใช้ AI เพื่อการพัฒนาระบบสารสนเทศ',
     lang: 'th-TH',
     base: '/laravel-vibecode/',
+    head: [
+      ['link', { rel: 'icon', href: '/laravel-vibecode/favicon.ico' }]
+    ],
 
     themeConfig: {
       logo: 'https://thesvg.org/icons/laravel/default.svg',
