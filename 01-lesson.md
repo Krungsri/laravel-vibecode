@@ -852,6 +852,8 @@ graph TD
 
 **Claude Code** จาก Anthropic รันบน Terminal โดยตรง ถนัดในการวิเคราะห์ Logic ซับซ้อนและตรวจสอบคุณภาพโค้ด
 
+![Claude Code Terminal](/images/claude_code.png)
+
 ```bash
 # ติดตั้งระบบผ่าน Node global pack
 npm install -g @anthropic-ai/claude-code
@@ -873,6 +875,8 @@ claude
 ## 21. <img src="https://thesvg.org/icons/google-antigravity/default.svg" width="20" height="20" valign="middle"> Antigravity CLI
 
 **Antigravity CLI** พัฒนาโดย Google ใช้ภาษา Go ทำให้รันได้เร็ว ฟีเจอร์หลักคือ **Async Subagents** ที่รันงานหลายอย่างพร้อมกันใน Background ได้
+
+![Antigravity CLI Terminal](/images/agy.png)
 
 ```bash
 # ติดตั้งบนระบบ macOS / Linux / WSL 2
@@ -898,6 +902,8 @@ agy
 ## 22. <img src="https://thesvg.org/icons/opencode/default.svg" width="20" height="20" valign="middle"> OpenCode
 
 **OpenCode** ให้ความยืดหยุ่นในการเลือกโมเดล สามารถสลับมาใช้ Local Model หรือ API ส่วนตัวได้ เหมาะกับองค์กรที่ต้องการควบคุมข้อมูล
+
+![OpenCode Terminal](/images/opencode.png)
 
 ```bash
 # ติดตั้งใช้งาน
