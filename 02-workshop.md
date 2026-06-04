@@ -133,8 +133,6 @@ erDiagram
   ```
 * **🔍 วิธีตรวจสอบ:** ลองเข้า URL ที่จะสร้างในขั้นตอนถัดไป เช่น `/admin/rooms` โดยล็อกอินด้วยบัญชี teacher — ระบบต้องแสดงหน้า 403 Forbidden ทันที
 
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
-
 ---
 
 ### 👑 Step 3: [เมนูที่ 1] ระบบจัดการข้อมูลห้องประชุมสำหรับแอดมิน (Admin's Rooms CRUD) {#step-3}
@@ -144,8 +142,6 @@ erDiagram
   สร้าง Admin\RoomController สำหรับทำ CRUD จัดการตารางห้องประชุม (มีปุ่มสร้าง, แก้ไข, ลบชั่วคราว soft delete, และกู้คืน restore) กำหนดสิทธิ์และ routes ใน web.php และสร้างหน้า React: Admin/Rooms/Index.jsx (ตารางจัดการห้อง) และ Admin/Rooms/Form.jsx (แบบฟอร์มเพิ่ม/แก้ไขห้อง) พร้อมอัปเดตเมนูหลักใน AuthenticatedLayout.jsx
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินเข้าใช้งานด้วยบัญชี `admin@example.com` แล้วไปที่เมนูจัดการห้อง ลองกดสร้าง แก้ไข หรือลบห้องประชุม และตรวจสอบการเปลี่ยนแปลงบนตาราง
-
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
 
 ---
 
@@ -157,34 +153,68 @@ erDiagram
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินเข้าใช้งานด้วยบัญชี `admin@example.com` ไปที่เมนูจัดการผู้ใช้งาน ทดลองเพิ่มบัญชีครูคนใหม่ หรือแก้ไขเปลี่ยนบทบาทจากครูเป็นเจ้าหน้าที่ (Staff) และลองทดสอบการเข้าถึงของสิทธิ์นั้นๆ
 
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
-
 ---
 
 ### 🎛️ Step 5: [บริการหลัก] บริการตรวจเช็คระบบคิวจองทับซ้อน (Booking Overlap Service) {#step-5}
 * **เป้าหมาย:** เขียนตรรกะหัวใจหลักของการป้องกันจองซ้ำ เพื่อเป็นตัวช่วยตรวจสอบก่อนส่งข้อมูลการจองบันทึกเข้าสู่ฐานข้อมูล
 * **📊 แผนภาพการเปรียบเทียบเวลาจองทับซ้อน (Time Overlapping Cases):**
-  ```mermaid
-  gantt
-      title กรณีจองเวลาซ้อนกัน (Overlap) ทั้ง 4 แบบที่ระบบต้องป้องกัน
-      dateFormat YYYY-MM-DD HH:mm
-      axisFormat %H:%M
-
-      section คิวจองเดิมในฐานข้อมูล
-      การจองเดิม (10.00-12.00) :active, 2024-01-01 10:00, 2h
-
-      section คนใหม่ยื่นจอง Case 1
-      ทับช่วงท้าย (11.00-13.00) :crit, 2024-01-01 11:00, 2h
-
-      section คนใหม่ยื่นจอง Case 2
-      ทับช่วงต้น (09.00-11.00) :crit, 2024-01-01 09:00, 2h
-
-      section คนใหม่ยื่นจอง Case 3
-      ครอบทั้งหมด (09.00-13.00) :crit, 2024-01-01 09:00, 4h
-
-      section คนใหม่ยื่นจอง Case 4
-      ทับอยู่ข้างใน (10.30-11.30) :crit, 2024-01-01 10:30, 1h
-  ```
+  <div class="booking-timeline" style="margin: 2rem 0; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 12px; background-color: var(--vp-c-bg-soft); box-shadow: 0 4px 12px rgba(0,0,0,0.05); width: 100%;">
+    <div style="width: 100%; font-family: var(--vp-font-family-base); font-size: 0.82rem;">
+      <!-- Title -->
+      <div style="font-size: 1rem; font-weight: bold; color: var(--vp-c-brand-1); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;">
+        <span>📅 กรณีจองเวลาซ้อนกัน (Overlap) ทั้ง 4 แบบที่ระบบต้องป้องกัน</span>
+      </div>
+      <!-- Timeline Grid Headers -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; text-align: center; font-weight: bold; margin-bottom: 0.75rem; border-bottom: 2px solid var(--vp-c-divider); padding-bottom: 6px;">
+        <div style="text-align: left; padding-left: 4px; color: var(--vp-c-text-1);">กรณีการจอง</div>
+        <div style="color: var(--vp-c-text-2); font-size: 0.75rem; grid-column: span 2; border-left: 1px solid var(--vp-c-divider);">09:00-10:00</div>
+        <div style="color: var(--vp-c-text-2); font-size: 0.75rem; grid-column: span 2; border-left: 1px solid var(--vp-c-divider);">10:00-11:00</div>
+        <div style="color: var(--vp-c-text-2); font-size: 0.75rem; grid-column: span 2; border-left: 1px solid var(--vp-c-divider);">11:00-12:00</div>
+        <div style="color: var(--vp-c-text-2); font-size: 0.75rem; grid-column: span 2; border-left: 1px solid var(--vp-c-divider);">12:00-13:00</div>
+      </div>
+      <!-- DB Queue Row -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--vp-c-divider);">
+        <div style="font-weight: 600; color: var(--vp-c-text-1);">🔵 คิวเดิมในระบบ</div>
+        <div style="grid-column: span 2;"></div>
+        <div style="grid-column: span 4; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; text-align: center; padding: 6px 0; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(59,130,246,0.2);">
+          จองเดิม (10:00-12:00)
+        </div>
+        <div style="grid-column: span 2;"></div>
+      </div>
+      <!-- Case 1 Row -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--vp-c-divider);">
+        <div style="font-weight: 600; color: #ef4444;">❌ Case 1: ทับช่วงท้าย</div>
+        <div style="grid-column: span 4;"></div>
+        <div style="grid-column: span 4; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; text-align: center; padding: 6px 0; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(239,68,68,0.2);">
+          จองใหม่ (11:00-13:00) ⚠️
+        </div>
+      </div>
+      <!-- Case 2 Row -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--vp-c-divider);">
+        <div style="font-weight: 600; color: #ef4444;">❌ Case 2: ทับช่วงต้น</div>
+        <div style="grid-column: span 4; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; text-align: center; padding: 6px 0; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(239,68,68,0.2);">
+          จองใหม่ (09:00-11:00) ⚠️
+        </div>
+        <div style="grid-column: span 4;"></div>
+      </div>
+      <!-- Case 3 Row -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--vp-c-divider);">
+        <div style="font-weight: 600; color: #ef4444;">❌ Case 3: ครอบทั้งหมด</div>
+        <div style="grid-column: span 8; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; text-align: center; padding: 6px 0; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(239,68,68,0.2);">
+          จองใหม่ครอบทั้งหมด (09:00-13:00) ⚠️
+        </div>
+      </div>
+      <!-- Case 4 Row -->
+      <div style="display: grid; grid-template-columns: 140px repeat(8, 1fr); gap: 4px; align-items: center; padding: 6px 0;">
+        <div style="font-weight: 600; color: #ef4444;">❌ Case 4: ทับอยู่ข้างใน</div>
+        <div style="grid-column: span 3;"></div>
+        <div style="grid-column: span 2; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; text-align: center; padding: 6px 2px; border-radius: 6px; font-weight: bold; box-shadow: 0 2px 4px rgba(239,68,68,0.2); line-height: 1.2;">
+          จองใหม่<br>(10:30-11:30) ⚠️
+        </div>
+        <div style="grid-column: span 3;"></div>
+      </div>
+    </div>
+  </div>
   > [!NOTE]
   > **💡 สูตรการตรวจสอบความทับซ้อน:**
   > ระบบจะใช้หลักคิดตรรกะแบบสั้นในการคำนวณ: `เวลาเริ่มจองใหม่ < เวลาสิ้นสุดเดิม` **และ** `เวลาสิ้นสุดใหม่ > เวลาเริ่มเดิม` หากเข้าเงื่อนไขนี้แสดงว่ามีการจองชนกัน
@@ -203,8 +233,6 @@ erDiagram
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินด้วยบัญชี `teacher@example.com` ไปที่เมนูห้องประชุม ตรวจสอบว่าเห็นรายการห้องทั้งหมด และเมื่อคลิกเข้าห้องใดห้องหนึ่งจะเห็นปฏิทินแสดงคิวจองที่มีอยู่แล้วจาก BookingSeeder
 
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
-
 ---
 
 ### 📋 Step 7: [เมนูที่ 3ข] ยื่นจองและดูประวัติการจอง (Booking CRUD) {#step-7}
@@ -214,8 +242,6 @@ erDiagram
   สร้าง BookingController เรียกใช้ BookingService ตรวจ overlap ก่อนบันทึก รองรับการยกเลิก (teacher เจ้าของเท่านั้น) กำหนดสิทธิ์และ routes สำหรับ teacher และสร้างหน้า React: Bookings/Create.jsx (ฟอร์มยื่นจองพร้อม validation แจ้งเตือนสีแดงเมื่อเวลาซ้อน) และ Bookings/Index.jsx (ประวัติคิวจองพร้อมแสดงสถานะและเหตุผลปฏิเสธ)
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินด้วยบัญชี `teacher@example.com` ลองกรอกฟอร์มจองห้อง — หากระบุเวลาซ้ำกับคิวเดิมระบบต้องแจ้งข้อผิดพลาดสีแดงทันที เมื่อจองสำเร็จคิวจะแสดงสถานะสีเหลืองว่า **"⏳ รออนุมัติ"**
-
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
 
 ---
 
@@ -227,8 +253,6 @@ erDiagram
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินด้วยบัญชี `staff@example.com` เข้าเมนูอนุมัติการจอง ลองกดปุ่มอนุมัติ หรือระบุเหตุผลเพื่อปฏิเสธคำขอ จากนั้นสลับกลับไปเช็กสถานะในบัญชีของครู (Teacher) ว่ารายการได้รับการอัปเดตตรงตามสิทธิ์แล้วหรือไม่
 
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
-
 ---
 
 ### 📊 Step 9: [เมนูที่ 5] ระบบรายงานและสถิติการใช้งานห้องประชุม (Usage Reports & Dashboard) {#step-9}
@@ -238,8 +262,6 @@ erDiagram
   สร้าง Admin\ReportController ดึงข้อมูลสถิติการจองห้องประชุม (ประกอบด้วย: 1. จำนวนครั้งที่จองห้องสำเร็จแยกตามห้อง 2. สัดส่วนสถานะการจองทั้งหมด pending/approved/rejected/cancelled 3. ชั่วโมงการใช้งานสะสมแยกตามห้องโดยคำนวณจากเวลาเริ่มและสิ้นสุดของการจองที่อนุมัติแล้ว) กำหนดสิทธิ์และ routes ใน web.php ให้เฉพาะ admin และ staff เข้าถึงได้ และสร้างหน้า React: Admin/Reports/Index.jsx แสดงการ์ดสรุปตัวเลขสำคัญ (KPIs Cards) กราฟแท่ง (Bar Chart) อย่างง่ายด้วย CSS หรือ SVG และตารางแจกแจงสถิติแยกรายห้อง พร้อมปุ่มพิมพ์รายงาน (Window Print) และอัปเดตเมนูนำทางใน AuthenticatedLayout.jsx ให้แสดงเมนูรายงานนี้เฉพาะผู้ใช้ที่มี role เป็น admin หรือ staff เท่านั้น
   ```
 * **🔍 วิธีตรวจสอบ:** ล็อกอินเข้าใช้งานด้วยบัญชี `admin@example.com` หรือ `staff@example.com` แล้วไปที่เมนูรายงานการใช้งานห้องประชุม ตรวจสอบข้อมูลสถิติว่ามีการคำนวณและดึงข้อมูลจากการจองในอดีตขึ้นมาแสดงผลถูกต้อง และสามารถกดปุ่มพิมพ์รายงานเพื่อตรวจสอบความสมบูรณ์ของหน้าเอกสารตอน Print Preview ได้
-
-> 💾 **ถ้าข้อมูลหาย:** รัน `php artisan db:seed` เพื่อกู้คืนข้อมูลทดสอบทั้งหมด
 
 ---
 
