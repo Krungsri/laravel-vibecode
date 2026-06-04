@@ -1,3 +1,9 @@
 node_modules/
 .vitepress/dist/
 .vitepress/cache/
+
+# Agent & AI CLI Tools
+.agents/
+.claude/
+.antigravitycli/
+skills-lock.json
