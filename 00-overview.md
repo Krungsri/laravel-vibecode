@@ -19,6 +19,7 @@
 | <img src="https://thesvg.org/icons/laravel/default.svg" width="20" height="20" valign="middle"> | **[01-lesson.md](./01-lesson.md)** | **Part 1 & 2:** ทฤษฎีพื้นฐาน, การติดตั้งเครื่องมือ (WSL 2, PHP 8.4, Composer, Node.js), โครงสร้าง MVC, และแนวคิดการทำงานร่วมกับ AI Agent (Claude Code / Antigravity CLI) |
 | <img src="https://thesvg.org/icons/react/default.svg" width="20" height="20" valign="middle"> | **[02-workshop.md](./02-workshop.md)** | **Workshop MVP:** ขั้นตอนการลงมือสร้าง **"ระบบจองห้องประชุมสำหรับองค์กร"** แบบทีละขั้นตอน (8 Steps) โดยใช้เทคนิค Short Prompt ร่วมกับ AI Agent |
 | 📧 | **[03-workshop-phase2.md](./03-workshop-phase2.md)** | **Workshop Phase 2:** เสริมระบบด้วย **In-App Notification** และ **Mail Alert** ผ่าน Mailpit รวม 5 ขั้นตอน (Steps 9–13) |
+| 🎨 | **[04-workshop-phase3.md](./04-workshop-phase3.md)** | **Workshop Phase 3:** สร้าง **Landing Page** สาธารณะด้วย **impeccable Skill** — ติดตั้ง Skill ผ่าน npx, วางแผน Layout, ตรวจสอบ Design Anti-patterns และเพิ่ม Animation (Steps 14–17) |
 
 ---
 
@@ -88,6 +89,22 @@
   * [Step 12: เชื่อม Notification และ Mail เข้า Controllers (P-12)](./03-workshop-phase2.md#step-12)
   * [Step 13: หน้าจอกระดิ่งแจ้งเตือน React (P-13)](./03-workshop-phase2.md#step-13)
 * [3. ตารางตรวจสอบผลงาน Phase 2](./03-workshop-phase2.md#checklist-p2)
+
+</details>
+
+<details>
+<summary>🎨 <b>ดัชนีขั้นตอนในเวิร์กชอป Phase 3 (04-workshop-phase3.md)</b></summary>
+
+* [ข้อกำหนดเบื้องต้น (Prerequisites)](./04-workshop-phase3.md#prerequisites)
+* [บทเรียน: การเพิ่ม Skills ด้วย npx](./04-workshop-phase3.md#skills-lesson)
+* [1. ติดตั้ง impeccable Skill](./04-workshop-phase3.md#install)
+* [2. ทำความรู้จัก impeccable](./04-workshop-phase3.md#overview)
+* [3. ขั้นตอนปฏิบัติการ Phase 3 (4 Steps)](./04-workshop-phase3.md#steps-p3)
+  * [Step 14: วางแผน Landing Page ด้วย /impeccable shape (P-14)](./04-workshop-phase3.md#step-14)
+  * [Step 15: สร้าง Landing Page React (P-15)](./04-workshop-phase3.md#step-15)
+  * [Step 16: ตรวจสอบและปรับปรุงด้วย impeccable (P-16)](./04-workshop-phase3.md#step-16)
+  * [Step 17: เพิ่ม Animation ด้วย impeccable (P-17)](./04-workshop-phase3.md#step-17)
+* [4. ตารางตรวจสอบผลงาน Phase 3](./04-workshop-phase3.md#checklist-p3)
 
 </details>
 

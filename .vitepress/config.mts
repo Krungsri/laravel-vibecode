@@ -18,21 +18,9 @@ export default withMermaid(
         { text: 'ภาพรวม', link: '/00-overview' },
         { text: 'ความต้องการระบบ', link: '/system-requirements' },
         { text: 'บทเรียน', link: '/01-lesson' },
-        {
-          text: 'Workshop P1',
-          items: [
-            { text: '🗄️ Step 1 — Database & Seeders', link: '/02-workshop#step-1' },
-            { text: '🔐 Step 2 — Authorization', link: '/02-workshop#step-2' },
-            { text: '👑 Step 3 — Rooms CRUD (Admin)', link: '/02-workshop#step-3' },
-            { text: '👥 Step 4 — Users CRUD (Admin)', link: '/02-workshop#step-4' },
-            { text: '🎛️ Step 5 — BookingService', link: '/02-workshop#step-5' },
-            { text: '🔍 Step 6 — Room Browsing', link: '/02-workshop#step-6' },
-            { text: '📋 Step 7 — Booking CRUD', link: '/02-workshop#step-7' },
-            { text: '👮 Step 8 — Staff Approvals', link: '/02-workshop#step-8' },
-            { text: '📊 Step 9 — Reports & Dashboard', link: '/02-workshop#step-9' },
-          ],
-        },
+        { text: 'Workshop P1', link: '/02-workshop' },
         { text: 'Workshop P2', link: '/03-workshop-phase2' },
+        { text: 'Workshop P3', link: '/04-workshop-phase3' },
       ],
 
       sidebar: [
@@ -49,6 +37,7 @@ export default withMermaid(
           items: [
             { text: '🏗️ Phase 1: ระบบจองห้องประชุม (MVP)', link: '/02-workshop' },
             { text: '📧 Phase 2: แจ้งเตือนและอีเมล', link: '/03-workshop-phase2' },
+            { text: '🎨 Phase 3: Landing Page (impeccable)', link: '/04-workshop-phase3' },
           ],
         },
       ],
