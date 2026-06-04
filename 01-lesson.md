@@ -320,14 +320,16 @@ flowchart TD
 ```php
 use App\Http\Controllers\PostController;
 
-// การกำหนด Route แบบเดี่ยว
-Route::get('/', function () {
-    return view('welcome');
-});
+// การกำหนด Route แบบเดี่ยว — ชี้ไปยัง Controller
+Route::get('/', [PostController::class, 'index']);
 
 // การกำหนด Resource Route บรรทัดเดียว ได้ถึง 7 หน้าการทำงานหลัก
 Route::resource('posts', PostController::class);
 ```
+
+> [!NOTE]
+> **Inertia.js Project ไม่ใช้ `return view()` ใน Route Closure**  
+> ในโปรเจกต์ที่ใช้ React Starter Kit การ Render หน้าจอทำผ่าน `Inertia::render()` ใน Controller เสมอ — ดูรายละเอียดใน [Section 15](#_15-react-pages-inertiajs-ระบบ-render-หน้ากากเว็บฝั่งหน้าบ้าน)
 
 การทำงานของ `Route::resource` จะจับคู่กับ Controller อัตโนมัติ ดังนี้:
 
@@ -388,6 +390,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
@@ -395,7 +398,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(10);
-        return view('posts.index', compact('posts'));
+        return Inertia::render('Posts/Index', [
+            'posts' => $posts,
+        ]);
     }
 
     // 2. บันทึกข้อมูลใหม่
@@ -583,6 +588,47 @@ foreach ($posts as $post) {
 ## 15. React Pages & Inertia.js — ระบบ Render หน้ากากเว็บฝั่งหน้าบ้าน
 
 ในโปรเจกต์ที่ใช้ **React Starter Kits** (เช่น Laravel Breeze React) เราจะไม่ต้องใช้ระบบ Template ของ Blade ในการจัดโครงสร้างหน้าเว็บหลักอีกต่อไป แต่จะหันมาพัฒนาส่วนติดต่อผู้ใช้งานด้วย **React (Frontend)** โดยมี **Inertia.js** ทำหน้าที่เป็นตัวเชื่อมประสานระบบหลังบ้านและหน้าบ้านเข้าด้วยกัน
+
+---
+
+### ⚖️ ทำไมต้องใช้ Inertia.js แทน Blade?
+
+ก่อนที่จะเรียนรู้วิธีการทำงานของ Inertia.js ควรทำความเข้าใจก่อนว่า **Blade** และ **Inertia.js** แตกต่างกันอย่างไร และทำไมในยุค AI-Assisted Development เราจึงเลือก Inertia.js
+
+```mermaid
+flowchart LR
+    subgraph blade ["🗒️ Blade (แบบดั้งเดิม)"]
+        direction TB
+        B1["🖱️ คลิกลิงก์"] --> B2["📡 Request ไป Server"]
+        B2 --> B3["🧠 Controller + Blade Template"]
+        B3 --> B4["📄 ส่ง HTML ทั้งหน้ากลับมา"]
+        B4 --> B5["🔄 เบราว์เซอร์โหลดใหม่ทั้งหมด"]
+    end
+
+    subgraph inertia ["⚡ Inertia.js (แบบใหม่)"]
+        direction TB
+        I1["🖱️ คลิกลิงก์"] --> I2["📡 AJAX Request (X-Inertia: true)"]
+        I2 --> I3["🧠 Controller + Inertia::render()"]
+        I3 --> I4["📦 ส่งแค่ JSON (ชื่อ Component + Data)"]
+        I4 --> I5["⚛️ React สลับเฉพาะส่วนที่เปลี่ยน"]
+    end
+```
+
+#### เปรียบเทียบโดยตรง
+
+| หัวข้อ | 🗒️ Blade | ⚡ Inertia.js + React |
+|:---|:---|:---|
+| **การโหลดหน้า** | โหลดใหม่ทั้งหมดทุกครั้ง (Full Reload) | สลับเฉพาะส่วนที่เปลี่ยน (No Reload) |
+| **ประสบการณ์ผู้ใช้** | หน้าจอกระพริบ มีรอยสะดุด | ลื่นไหลเหมือนแอปมือถือ |
+| **ภาษาที่ใช้ใน View** | PHP + HTML ปนกัน (`.blade.php`) | React JSX ล้วน (`.jsx`) |
+| **การส่งข้อมูล** | `compact()` → Blade Variables | `Inertia::render()` → React Props |
+| **ระบบ Auth** | Session Cookie (Laravel จัดการ) | Session Cookie เหมือนเดิม — ไม่ต้องเขียน JWT |
+| **Routing** | กำหนดใน `web.php` เหมือนเดิม | กำหนดใน `web.php` เหมือนเดิม — ไม่ต้อง React Router |
+| **API แยก** | ไม่ต้องการ | **ไม่ต้องการเช่นกัน** — Inertia เชื่อมให้เอง |
+| **ความเหมาะสมกับ AI** | AI ต้องเขียนทั้ง PHP และ Blade syntax | AI โฟกัสได้ที่ React Component เดียว |
+
+> [!NOTE]
+> **จุดแข็งที่สุดของ Inertia.js** คือการได้ประสบการณ์ผู้ใช้แบบ SPA (เร็ว ลื่น ไม่กระพริบ) โดยไม่ต้องแยกโปรเจกต์หน้าบ้าน-หลังบ้าน ไม่ต้องเขียน REST API และไม่ต้องจัดการ JWT Token — ระบบ Auth, Routing และ Validation ของ Laravel ยังคงทำงานเหมือนเดิมทุกอย่าง
 
 ---
 
