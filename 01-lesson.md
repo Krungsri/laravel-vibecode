@@ -605,6 +605,8 @@ flowchart LR
         B4 --> B5["🔄 เบราว์เซอร์โหลดใหม่ทั้งหมด"]
     end
 
+    blade ~~~ inertia
+
     subgraph inertia ["⚡ Inertia.js (แบบใหม่)"]
         direction TB
         I1["🖱️ คลิกลิงก์"] --> I2["📡 AJAX Request (X-Inertia: true)"]
