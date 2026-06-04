@@ -336,3 +336,31 @@
 .mermaid .relationshipLabel {
   fill: var(--vp-c-bg) !important;
 }
+
+/* --- Minimal Scrollbar for Code Blocks --- */
+div[class*='language-'] pre::-webkit-scrollbar {
+  height: 5px; /* height of horizontal scrollbar */
+  width: 5px;  /* width of vertical scrollbar */
+}
+
+div[class*='language-'] pre::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+div[class*='language-'] pre::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+div[class*='language-'] pre::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-text-3);
+}
+
+/* Firefox compatibility */
+div[class*='language-'] pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) transparent;
+}
+
