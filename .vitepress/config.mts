@@ -26,6 +26,7 @@ export default withMermaid(
             { text: '🔍 Step 6 — Room Browsing', link: '/02-workshop#step-6' },
             { text: '📋 Step 7 — Booking CRUD', link: '/02-workshop#step-7' },
             { text: '👮 Step 8 — Staff Approvals', link: '/02-workshop#step-8' },
+            { text: '📊 Step 9 — Reports & Dashboard', link: '/02-workshop#step-9' },
           ],
         },
         { text: 'Workshop P2', link: '/03-workshop-phase2' },
