@@ -283,34 +283,41 @@
 
 /* --- Gantt Diagram Custom Styling --- */
 .mermaid svg.gantt {
-  min-width: 800px;
+  min-width: 860px;
   width: 100% !important;
   height: auto !important;
+  font-size: 16px !important;
 }
 
 .mermaid .titleText,
 .mermaid .title {
-  font-size: 1.1rem !important;
+  font-size: 1.15rem !important;
   font-weight: 600 !important;
   fill: var(--vp-c-brand-2) !important;
 }
 
 .mermaid .taskText {
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   fill: #ffffff !important;
 }
 
 .mermaid .taskTextOutside {
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   fill: var(--vp-c-text-1) !important;
 }
 
 .mermaid .sectionTitle {
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   fill: var(--vp-c-brand-2) !important;
+}
+
+/* Gantt axis tick labels */
+.mermaid svg.gantt .tick text {
+  font-size: 13px !important;
+  fill: var(--vp-c-text-2) !important;
 }
 
 /* Scroll wrapper for all diagrams to prevent shrinking/squishing */

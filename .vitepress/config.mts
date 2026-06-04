@@ -72,12 +72,28 @@ export default withMermaid(
 
     mermaid: {
       theme: 'neutral',
+      gantt: {
+        fontSize: 16,
+        sectionFontSize: 16,
+        barHeight: 32,
+        barGap: 8,
+        topPadding: 70,
+        leftPadding: 220,
+        rightPadding: 40,
+        gridLineStartPadding: 35,
+      },
       themeVariables: {
         fontFamily: '"Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
         primaryColor: '#FF2D20',
         primaryTextColor: '#ffffff',
         primaryBorderColor: '#cc1f15',
         lineColor: '#FF2D20',
+      },
+    },
+
+    vite: {
+      optimizeDeps: {
+        include: ['mermaid', 'dayjs', 'dayjs/plugin/duration'],
       },
     },
   })
